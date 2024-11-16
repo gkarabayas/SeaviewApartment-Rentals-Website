@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "features": "Features",
+    "reviews": "Reviews",
+    "host": "Host",
+    "location": "Location",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "title": "Luxury Living in Patra",
+    "subtitle": "98m² of elegance with breathtaking sea and mountain views, just 2km from Patra Plage",
+    "location": "Prime Location",
+    "locationDesc": "150m from beachfront, near University",
+    "welcome": "Welcome Package",
+    "welcomeDesc": "Complimentary wine and fruits",
+    "entertainment": "Entertainment",
+    "entertainmentDesc": "WiFi & Smart TV with streaming services"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "showMore": "Show More Images"
+  },
+  "features": {
+    "title": "Apartment Features",
+    "bedrooms": {
+      "title": "2 Bedrooms",
+      "desc": "Each with comfortable double beds",
+      "details": "Two spacious bedrooms featuring premium double beds with luxury linens"
+    },
+    "bathrooms": {
+      "title": "2 Modern Bathrooms",
+      "desc": "Fully equipped with amenities",
+      "details": "Contemporary bathroom with shower, premium toiletries, and fresh towels"
+    },
+    "kitchen": {
+      "title": "Fully Equipped Kitchen",
+      "desc": "Dishwasher, oven, microwave",
+      "details": "Modern kitchen with dishwasher, oven, microwave, and all cooking essentials"
+    }
+  },
+  "reviews": {
+    "title": "Guest Reviews",
+    "showMore": "Show More Reviews"
+  },
+  "host": {
+    "title": "Meet Your Hosts",
+    "subtitle": "Spiro, Panagiotis and Roswitha Ried-Korpas",
+    "description": "With 30 years of hospitality experience in the USA, we bring our expertise to make your stay truly memorable. Our \"House Befitting Heaven\" is designed to be your perfect home away from home."
+  },
+  "contact": {
+    "title": "Book Your Stay",
+    "checkIn": "Check-in Date",
+    "checkOut": "Check-out Date",
+    "checkAvailability": "Check Availability on Booking.com"
+  },
+  "footer": {
+    "copyright": "Copyright © 2024 Sea View Apartment - All Rights Reserved"
+  }
+}
