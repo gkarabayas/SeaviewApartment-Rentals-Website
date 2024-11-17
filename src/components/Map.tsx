@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useTranslation } from 'react-i18next';
 
 export function Map() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const map = L.map('map', {
       preferCanvas: true,
@@ -38,7 +41,7 @@ export function Map() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
-        <h2 className="text-4xl font-bold mb-8 text-center">Location</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center">{t('map.title')}</h2>
         <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
           <div id="map" className="w-full h-full rounded-xl"></div>
         </div>

@@ -48,8 +48,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
         <div className="flex justify-between items-center h-16">
           <h1 className="text-white text-xl md:text-2xl font-bold">Sea View Apartment</h1>
           
-          <div className="flex items-center space-x-4">
-            <LanguageSelector />
+          <div className="flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-white hover:text-blue-400"
@@ -77,6 +76,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
             >
               {t('nav.bookNow')}
             </button>
+            <LanguageSelector />
           </div>
         </div>
 

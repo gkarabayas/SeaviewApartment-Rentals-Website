@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { GR, AU, AL } from 'country-flag-icons/react/3x2';
+import { useTranslation } from 'react-i18next';
 
 const countryComponents: { [key: string]: React.ComponentType<{ className?: string }> } = {
   Greece: GR,
@@ -54,11 +55,12 @@ const reviews = [
 export function Reviews() {
   const [showAllReviews, setShowAllReviews] = useState(false);
   const visibleReviews = showAllReviews ? reviews : reviews.slice(0, 2);
+  const { t } = useTranslation();
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20" id="reviews">
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
-        <h2 className="text-4xl font-bold mb-12 text-center">Guest Reviews</h2>
+        <h2 className="text-4xl font-bold mb-12 text-center">{t('reviews.title')}</h2>
         <div className="grid grid-cols-1 gap-8">
           {visibleReviews.map((review, index) => (
             <div key={index} className="bg-black/30 p-6 rounded-xl">
@@ -90,9 +92,9 @@ export function Reviews() {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAllReviews(true)}
-              className="px-6 py-2 text-blue-400 border-2 border-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-colors"
+              className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
             >
-              Show More Reviews
+              {t('reviews.showMore')}
             </button>
           </div>
         )}

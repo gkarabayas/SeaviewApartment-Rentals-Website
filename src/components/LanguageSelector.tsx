@@ -6,8 +6,11 @@ export function LanguageSelector() {
   const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'gr' : 'en';
-    i18n.changeLanguage(newLang);
+    const newLang = i18n.language === 'gr' ? 'en' : 'gr';
+    i18n.changeLanguage(newLang).then(() => {
+      console.log('Language changed to:', newLang);
+      console.log('Translation test:', i18n.t('hero.title'));
+    });
   };
 
   return (
@@ -16,10 +19,10 @@ export function LanguageSelector() {
       className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
       aria-label="Toggle language"
     >
-      {i18n.language === 'en' ? (
-        <GR className="w-6 h-4" title="Switch to Greek" />
-      ) : (
+      {i18n.language === 'gr' ? (
         <GB className="w-6 h-4" title="Switch to English" />
+      ) : (
+        <GR className="w-6 h-4" title="Switch to Greek" />
       )}
     </button>
   );

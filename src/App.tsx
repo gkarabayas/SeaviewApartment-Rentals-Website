@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
@@ -9,6 +10,7 @@ import { Contact } from './components/Contact';
 import { Map } from './components/Map';
 
 function App() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('home');
   const [showGalleryModal, setShowGalleryModal] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -32,7 +34,7 @@ function App() {
           </div>
           <div id="gallery" className="min-h-screen flex items-center justify-center px-4 py-20">
             <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-4 md:p-8 rounded-2xl text-white">
-              <h2 className="text-4xl font-bold mb-8 md:mb-12 text-center">Gallery</h2>
+              <h2 className="text-4xl font-bold mb-8 md:mb-12 text-center">{t('gallery.title')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {images.slice(0, showAllImages ? images.length : 6).map((image, index) => (
                   <div
@@ -58,7 +60,7 @@ function App() {
                     onClick={() => setShowAllImages(true)}
                     className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
                   >
-                    Show More Images
+                    {t('gallery.showMore')}
                   </button>
                 </div>
               )}
@@ -70,7 +72,7 @@ function App() {
           <Map />
           <Contact />
           <footer className="bg-black/40 backdrop-blur-md text-white text-center py-4 mt-20">
-            <p>Copyright © 2024 Sea View Apartment - All Rights Reserved</p>
+            <p>{t('footer.copyright')}</p>
           </footer>
         </div>
         <Gallery 
