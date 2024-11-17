@@ -16,7 +16,8 @@
     "welcome": "Welcome Package",
     "welcomeDesc": "Complimentary wine and fruits",
     "entertainment": "Entertainment",
-    "entertainmentDesc": "WiFi & Smart TV with streaming services"
+    "entertainmentDesc": "WiFi & Smart TV with streaming services",
+    "button": "Book Your Stay Now"
   },
   "gallery": {
     "title": "Gallery",
@@ -38,6 +39,51 @@
       "title": "Fully Equipped Kitchen",
       "desc": "Dishwasher, oven, microwave",
       "details": "Modern kitchen with dishwasher, oven, microwave, and all cooking essentials"
+    },
+    "fireplace": {
+      "title": "Fireplace",
+      "desc": "Cozy indoor fireplace",
+      "details": "Beautiful indoor fireplace perfect for cozy evenings"
+    },
+    "seaview": {
+      "title": "Sea View",
+      "desc": "Stunning ocean vistas",
+      "details": "Breathtaking views of the Mediterranean Sea from your private balcony"
+    },
+    "mountainview": {
+      "title": "Mountain View",
+      "desc": "Scenic mountain landscape",
+      "details": "Panoramic mountain views creating a peaceful atmosphere"
+    },
+    "airconditioning": {
+      "title": "Air Conditioning",
+      "desc": "Climate controlled comfort",
+      "details": "Modern climate control system for year-round comfort"
+    },
+    "bbq": {
+      "title": "BBQ",
+      "desc": "Outdoor barbecue facility",
+      "details": "Private BBQ area perfect for outdoor dining"
+    },
+    "parking": {
+      "title": "Parking",
+      "desc": "Free private parking",
+      "details": "Secure private parking space included with your stay"
+    },
+    "wifi": {
+      "title": "Free WiFi",
+      "desc": "High-speed internet",
+      "details": "High-speed fiber internet throughout the apartment"
+    },
+    "tv": {
+      "title": "Smart TV",
+      "desc": "With streaming services",
+      "details": "Large Smart TV with Netflix, Prime Video, and more"
+    },
+    "coffeestation": {
+      "title": "Coffee Station",
+      "desc": "Tea and coffee maker",
+      "details": "Premium coffee maker with complimentary coffee and tea selection"
     }
   },
   "reviews": {
@@ -46,14 +92,47 @@
   },
   "host": {
     "title": "Meet Your Hosts",
-    "subtitle": "Spiro, Panagiotis and Roswitha Ried-Korpas",
-    "description": "With 30 years of hospitality experience in the USA, we bring our expertise to make your stay truly memorable. Our \"House Befitting Heaven\" is designed to be your perfect home away from home."
+    "hosts": "Spiro, Panagiotis and Roswitha Ried-Korpas",
+    "description": "Γεια σου, Welcome, Willkommen, OLA! With 30 years of hospitality experience in the USA, we bring our expertise to make your stay truly memorable. Our \"House Befitting Heaven\" is designed to be your perfect home away from home.",
+    "hostsImageAlt": "Hosts",
+    "locationHighlights": "Location Highlights",
+    "locationItems": [
+      "98 feet from the beachfront",
+      "0.6 miles from Rion",
+      "2.5 miles from Patras center",
+      "0.6 miles from Rio-Antirio Bridge"
+    ],
+    "attractions": "Nearby Attractions",
+    "attractionItems": [
+      "Archaeological Museum (1.2 miles)",
+      "Roman Theater (4 miles)",
+      "St. Andreas Church (5 miles)",
+      "Achaia Klaus Winery (10 miles)"
+    ],
+    "transportation": "Transportation",
+    "transportItems": [
+      "Bus stop within 164 feet",
+      "City train within 280 feet",
+      "Free private parking"
+    ],
+    "welcomePackage": "Welcome Package",
+    "welcomeDescription": "We provide all necessities for your first days: water, coffee, teas, milk, juice, laundry supplies, and more. Our goal is to ensure a comfortable and memorable stay from the moment you arrive."
   },
   "contact": {
     "title": "Book Your Stay",
     "checkIn": "Check-in Date",
     "checkOut": "Check-out Date",
-    "checkAvailability": "Check Availability on Booking.com"
+    "checkAvailability": "Check Availability on Booking.com",
+    "locationHighlights": "Location Highlights",
+    "nearbyPlaces": [
+      "2 km from Patra Plage",
+      "2.6 km from Agyia Beach",
+      "3.1 km from Cultural Centre",
+      "46 km from Araxos Airport"
+    ]
+  },
+  "map": {
+    "title": "Location"
   },
   "footer": {
     "copyright": "Copyright © 2024 Sea View Apartment - All Rights Reserved"
