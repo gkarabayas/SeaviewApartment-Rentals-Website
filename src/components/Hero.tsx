@@ -2,59 +2,23 @@ import React from 'react';
 import { Navigation2, Wine, Wifi, Tv } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// Remove the glowingCardStyles and useEffect hook
-// const glowingCardStyles = `
-//   @keyframes glowingBorder {
-//     0% { background-position: 0% 0%; }
-//     50% { background-position: 200% 0%; }
-//     100% { background-position: 0% 0%; }
-//   }
+const textAnimationStyles = `
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-//   .glowing-border {
-//     position: relative;
-//     /* Remove background from inside the cards */
-//     /* background: rgba(0, 0, 0, 0.3); */
-//     z-index: 1;
-//   }
-
-//   .glowing-border::before {
-//     content: '';
-//     position: absolute;
-//     inset: -2px;
-//     background: linear-gradient(
-//       90deg,
-//       #60a5fa,
-//       #3b82f6,
-//       #2563eb,
-//       #1d4ed8,
-//       #3b82f6,
-//       #60a5fa
-//     );
-//     background-size: 300% 100%;
-//     animation: glowingBorder 3s linear infinite;
-//     border-radius: inherit;
-//     z-index: -1;
-//     opacity: 0;
-//     transition: opacity 0.3s ease;
-//   }
-
-//   .glowing-border:hover::before {
-//     opacity: 1;
-//   }
-
-//   .glowing-border > * {
-//     position: relative;
-//     z-index: 2;
-//   }
-// `;
-
-// React.useEffect(() => {
-//   // Inject the styles
-//   const style = document.createElement('style');
-//   style.textContent = glowingCardStyles;
-//   document.head.appendChild(style);
-//   return () => style.remove();
-// }, []);
+  .animate-fade-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+`;
 
 export function Hero() {
   const { t, i18n } = useTranslation();
@@ -62,11 +26,28 @@ export function Hero() {
   console.log('Hero - Current language:', i18n.language);
   console.log('Hero - Translation test:', t('hero.title'));
 
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = textAnimationStyles;
+    document.head.appendChild(style);
+    return () => style.remove();
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
-        <h2 className="text-5xl font-bold mb-6">{t('hero.title')}</h2>
-        <p className="text-xl mb-8">{t('hero.subtitle')}</p>
+        <h2 
+          className="text-5xl font-bold mb-6 animate-fade-up"
+          style={{ animationDelay: '0.2s' }}
+        >
+          {t('hero.title')}
+        </h2>
+        <p 
+          className="text-xl mb-8 animate-fade-up"
+          style={{ animationDelay: '0.4s' }}
+        >
+          {t('hero.subtitle')}
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-black/30 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_15px_rgba(96,165,250,0.5)]">
             <Navigation2 className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:rotate-12" />
