@@ -54,7 +54,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
         'service_x9gm8d8', // Replace with your service ID
         'template_w1sr54t', // Replace with your template ID
         {
-          to_email: 'gkarampagias12@gmail.com',
+          to_email: 'roswitharied@gmail.com',
           from_name: name,
           from_email: email,
           message: message,
