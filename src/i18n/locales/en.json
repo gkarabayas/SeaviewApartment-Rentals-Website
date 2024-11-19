@@ -31,9 +31,9 @@
       "details": "Two spacious bedrooms featuring premium double beds with luxury linens"
     },
     "bathrooms": {
-      "title": "2 Modern Bathrooms",
-      "desc": "Fully equipped with amenities",
-      "details": "Contemporary bathroom with shower, premium toiletries, and fresh towels"
+      "title": "3 Bathrooms",
+      "desc": "2 fully equipped bathrooms & WC / laundry room",
+      "details": "Two modern bathrooms with showers and an additional one with washer/dryer"
     },
     "kitchen": {
       "title": "Fully Equipped Kitchen",
@@ -129,12 +129,38 @@
       "2.6 km from Agyia Beach",
       "3.1 km from Cultural Centre",
       "46 km from Araxos Airport"
-    ]
+    ],
+    "discountPopup": {
+      "title": "Special Offer!",
+      "description": "Get a 15% discount when you book directly with us!",
+      "messageButton": "Send Us A Message",
+      "bookingButton": "Continue to Booking.com"
+    },
+    "minimumStay": "Minimum stay 2 nights",
+    "notAvailable": "Sorry, these dates are not available. Please try different dates.",
+    "checking": "Checking availability..."
   },
   "map": {
     "title": "Location"
   },
   "footer": {
     "copyright": "Copyright © 2024 Sea View Apartment - All Rights Reserved"
+  },
+  "sendMessage": {
+    "title": "Send Us A Message",
+    "selectedDates": "Your Selected Dates",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "messageLabel": "Your Message",
+    "submit": "Send Message",
+    "defaultMessage": "Hello, I'm interested in booking your apartment from {startDate} to {endDate}. I saw that there's a 15% discount for direct bookings. Could you please provide more information about the booking process? Thank you!",
+    "changeButton": "Change?",
+    "successMessage": "Message sent successfully! We'll get back to you soon.",
+    "errorMessage": "Failed to send message. Please try again.",
+    "sending": "Sending...",
+    "checking": "Checking availability...",
+    "available": "These dates are available!",
+    "notAvailable": "Sorry, these dates are not available.",
+    "tryOtherDates": "Please try different dates."
   }
 }

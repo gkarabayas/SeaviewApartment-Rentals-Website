@@ -46,7 +46,12 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
     <nav className="bg-black/30 backdrop-blur-md fixed w-full z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <h1 className="text-white text-xl md:text-2xl font-bold">Sea View Apartment</h1>
+          <div className="flex items-center space-x-4">
+            <h1 className="text-white text-xl md:text-2xl font-bold">Sea View Apartment</h1>
+            <div className="md:hidden">
+              <LanguageSelector />
+            </div>
+          </div>
           
           <div className="flex items-center">
             <button
