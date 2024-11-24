@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navigation2, Wine, Wifi, Tv } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import PulsatingButton from "./ui/pulsating-button.tsx";
+import AnimatedGradientText from "./ui/animated-gradient-text";
 
 const textAnimationStyles = `
   @keyframes fadeInUp {
@@ -36,12 +38,16 @@ export function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
-        <h2 
-          className="text-5xl font-bold mb-6 animate-fade-up"
-          style={{ animationDelay: '0.2s' }}
-        >
-          {t('hero.title')}
-        </h2>
+        <div className="flex items-center gap-2 mb-6">
+          <AnimatedGradientText>
+            <span className="text-5xl font-bold">
+              {t('hero.title1')}
+            </span>
+          </AnimatedGradientText>
+          <span className="text-5xl font-bold text-white">
+            {t('hero.title2')}
+          </span>
+        </div>
         <p 
           className="text-xl mb-8 animate-fade-up"
           style={{ animationDelay: '0.4s' }}
@@ -65,18 +71,17 @@ export function Hero() {
             <p className="transform transition-all duration-500 group-hover:translate-x-2">{t('hero.entertainmentDesc')}</p>
           </div>
         </div>
-        <div className="text-center mt-8">
-          <button
+        <div className="flex justify-center items-center mt-8">
+          <PulsatingButton
             onClick={() => {
               const contactElement = document.getElementById('contact');
               if (contactElement) {
                 contactElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
           >
             {t('hero.button')}
-          </button>
+          </PulsatingButton>
         </div>
       </div>
     </section>

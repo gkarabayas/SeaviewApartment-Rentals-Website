@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { LanguageSelector } from './LanguageSelector';
+import ShimmerButton from "./ui/shimmer-button";
 
 interface NavigationProps {
   activeSection: string;
@@ -75,12 +76,16 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
                 {item.name}
               </button>
             ))}
-            <button
+            <ShimmerButton
               onClick={() => scrollToSection('contact')}
-              className="px-6 py-2 text-blue-400 border-2 border-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-colors"
-            >
-              {t('nav.bookNow')}
-            </button>
+              className="shadow-lg"
+              background="rgb(37,99,235)"
+              shimmerSize="0.2em"
+                          >
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                {t('nav.bookNow')}
+              </span>
+            </ShimmerButton>
             <LanguageSelector />
           </div>
         </div>
@@ -103,12 +108,15 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
                 {item.name}
               </button>
             ))}
-            <button
+            <ShimmerButton
               onClick={() => scrollToSection('contact')}
-              className="px-6 py-2 text-blue-400 border-2 border-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-colors w-full text-center"
+              className="w-full shadow-lg"
+              background="rgb(37,99,235)"
             >
-              {t('nav.bookNow')}
-            </button>
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                {t('nav.bookNow')}
+              </span>
+            </ShimmerButton>
           </div>
         </div>
       </div>
