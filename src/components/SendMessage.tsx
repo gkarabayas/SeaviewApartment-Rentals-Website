@@ -51,10 +51,10 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
 
     try {
       await emailjs.send(
-        'service_x9gm8d8', // Replace with your service ID
-        'template_w1sr54t', // Replace with your template ID
+        'service_x9gm8d8',
+        'template_w1sr54t',
         {
-          to_email: 'roswitharied@gmail.com',
+          to_email: 'roswitharied@gmail.com', // Update this line
           from_name: name,
           from_email: email,
           message: message,
