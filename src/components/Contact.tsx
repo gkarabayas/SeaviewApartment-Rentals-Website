@@ -75,7 +75,7 @@ export function Contact() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <Mail className="w-6 h-6 text-blue-400" />
-                  <p>info@seaviewpatra.com</p>
+                  <p>roswitharied@gmail.com</p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="w-6 h-6 text-blue-400" />

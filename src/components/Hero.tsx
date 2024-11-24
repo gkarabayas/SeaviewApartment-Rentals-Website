@@ -4,53 +4,27 @@ import { useTranslation } from 'react-i18next';
 import PulsatingButton from "./ui/pulsating-button.tsx";
 import AnimatedGradientText from "./ui/animated-gradient-text";
 
-const textAnimationStyles = `
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-`;
-
 export function Hero() {
   const { t, i18n } = useTranslation();
   
   console.log('Hero - Current language:', i18n.language);
   console.log('Hero - Translation test:', t('hero.title'));
 
-  React.useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = textAnimationStyles;
-    document.head.appendChild(style);
-    return () => style.remove();
-  }, []);
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-4">
+    <section className="min-h-screen flex items-center justify-center px-4 animate-fade-in">
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-6">
           <AnimatedGradientText>
-            <span className="text-5xl font-bold">
+            <span className="text-3xl sm:text-4xl md:text-5xl font-bold">
               {t('hero.title1')}
             </span>
           </AnimatedGradientText>
-          <span className="text-5xl font-bold text-white">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             {t('hero.title2')}
           </span>
         </div>
         <p 
-          className="text-xl mb-8 animate-fade-up"
-          style={{ animationDelay: '0.4s' }}
+          className="text-xl mb-8 animate-fade-up [animation-delay:500ms]"
         >
           {t('hero.subtitle')}
         </p>

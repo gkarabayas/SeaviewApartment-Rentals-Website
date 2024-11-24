@@ -13,7 +13,9 @@ export default {
   			pulse: 'pulse var(--duration) ease-out infinite',
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
-  			gradient: 'gradient 8s linear infinite'
+  			gradient: 'gradient 8s linear infinite',
+  			'fade-up': 'fadeUp 0.8s ease-out forwards',
+        	'fade-in': 'fadeIn 1s ease-out forwards'
   		},
   		keyframes: {
   			'border-beam': {
@@ -60,7 +62,25 @@ export default {
   				to: {
   					backgroundPosition: 'var(--bg-size) 0'
   				}
-  			}
+  			},
+  			fadeUp: {
+	          from: {
+	            opacity: '0',
+	            transform: 'translateY(30px)'
+	          },
+	          to: {
+	            opacity: '1',
+	            transform: 'translateY(0)'
+	          }
+	        },
+	        fadeIn: {
+	          from: {
+	            opacity: '0'
+	          },
+	          to: {
+	            opacity: '1'
+	          }
+	        }
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

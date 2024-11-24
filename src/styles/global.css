@@ -1,0 +1,10 @@
+
+:root {
+  // ...existing code...
+  --destructive-foreground: 0, 0%, 98%;
+  --border: 240, 5.9%, 90%;
+  --input: 240, 5.9%, 90%;
+  --ring: 240, 10%, 3.9%;
+  --chart-1: 12, 76%, 61%;
+  // ...existing code...
+}
