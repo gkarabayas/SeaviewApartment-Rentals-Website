@@ -65,7 +65,7 @@ export function Contact() {
         />
       ) : (
         <section className="min-h-screen flex items-center justify-center px-4 py-20 relative" id="contact">
-          <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
+          <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-md p-8 rounded-2xl text-white">
             <h2 className="text-4xl font-bold mb-12 text-center">{t('contact.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-8">
@@ -81,7 +81,7 @@ export function Contact() {
                   <MapPin className="w-6 h-6 text-blue-400" />
                   <p>Lefkotheas 8, 264 42 Patra, Greece</p>
                 </div>
-                <div className="bg-black/30 p-6 rounded-xl mt-6">
+                <div className="bg-gradient-to-br from-white/10 to-white/20 p-6 rounded-xl mt-6">
                   <h3 className="text-xl font-semibold mb-4">{t('contact.locationHighlights')}</h3>
                   <ul className="space-y-2">
                     {t('contact.nearbyPlaces', { returnObjects: true }).map((place: string, index: number) => (
@@ -91,7 +91,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="bg-black/30 p-6 rounded-xl">
+                <div className="bg-gradient-to-br from-white/10 to-white/20 p-6 rounded-xl">
                   <h3 className="text-xl font-semibold mb-6 flex items-center">
                     <Calendar className="w-6 h-6 mr-2 text-white-400" />
                     {t('contact.checkAvailability')}

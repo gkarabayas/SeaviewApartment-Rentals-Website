@@ -8,7 +8,7 @@ export function Host() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20" id="host">
-      <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
+      <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
         <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
           <div className="relative">
             <button
@@ -39,50 +39,50 @@ export function Host() {
           <div>
             <h2 className="text-4xl font-bold mb-4">{t('host.title')}</h2>
             <h3 className="text-2xl mb-4">{t('host.hosts')}</h3>
-            <p className="text-gray-300">{t('host.description')}</p>
+            <p className="text-white/90">{t('host.description')}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-black/30 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Home className="text-blue-400" />
               {t('host.locationHighlights')}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-white/90">
               {t('host.locationItems', { returnObjects: true }).map((item: string, index: number) => (
                 <li key={index}>• {item}</li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-black/30 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Ticket className="text-blue-400" />
               {t('host.attractions')}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-white/90">
               {t('host.attractionItems', { returnObjects: true }).map((item: string, index: number) => (
                 <li key={index}>• {item}</li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-black/30 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Bus className="text-blue-400" />
               {t('host.transportation')}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-white/90">
               {t('host.transportItems', { returnObjects: true }).map((item: string, index: number) => (
                 <li key={index}>• {item}</li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-black/30 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <h3 className="text-xl font-semibold mb-4">{t('host.welcomePackage')}</h3>
-            <p className="text-gray-300">{t('host.welcomeDescription')}</p>
+            <p className="text-white/90">{t('host.welcomeDescription')}</p>
           </div>
         </div>
       </div>

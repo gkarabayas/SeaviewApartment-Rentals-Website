@@ -33,13 +33,13 @@ function App() {
             <Hero />
           </div>
           <div id="gallery" className="min-h-screen flex items-center justify-center px-4 py-20">
-            <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-4 md:p-8 rounded-2xl text-white">
+            <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
               <h2 className="text-4xl font-bold mb-8 md:mb-12 text-center">{t('gallery.title')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {images.slice(0, showAllImages ? images.length : 6).map((image, index) => (
                   <div
                     key={index}
-                    className="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity transform hover:scale-105 duration-300"
+                    className="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10"
                     onClick={() => {
                       setSelectedImageIndex(index);
                       setShowGalleryModal(true);
@@ -58,7 +58,7 @@ function App() {
                 <div className="text-center mt-8">
                   <button
                     onClick={() => setShowAllImages(true)}
-                    className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+                    className="px-6 py-2 bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-lg border border-white/20 rounded-full hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 text-white"
                   >
                     {t('gallery.showMore')}
                   </button>
@@ -71,7 +71,7 @@ function App() {
           <Host />
           <Map />
           <Contact />
-          <footer className="bg-black/40 backdrop-blur-md text-white text-center py-4 mt-20">
+          <footer className="bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-lg border-t border-white/20 text-white text-center py-4 mt-20">
             <p>{t('footer.copyright')}</p>
           </footer>
         </div>
@@ -87,7 +87,7 @@ function App() {
 }
 
 const images = [
-  "https://img1.wsimg.com/isteam/ip/bbe3514f-07d7-4f69-b01b-ff103eade408/IMG_1902.jpeg",
+  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/595746092.jpg?k=6b1a45b7cf94411ada8f7de79de4a29ea893ebac973fb940f9fe8ed636dc3fed&o=&hp=1",
   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/595746057.jpg?k=2d2e17361efb4c9b486f31120ad03c7dca5eb7e87facd6c19fb760218063a842&o=&hp=1",
   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/595746064.jpg?k=95676f272613b4307724ec905c2090a7179f4939ee7f3f58e6ad3cb88c5cf946&o=&hp=1",
   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/595746092.jpg?k=6b1a45b7cf94411ada8f7de79de4a29ea893ebac973fb940f9fe8ed636dc3fed&o=&hp=1",
