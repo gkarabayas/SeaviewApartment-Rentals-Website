@@ -22,19 +22,19 @@ export function Features() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20" id="features">
-      <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md p-8 rounded-2xl text-white">
+      <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
         <h2 className="text-4xl font-bold mb-12 text-center">{t('features.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col bg-black/30 p-4 rounded-xl transform transition-all duration-300 hover:scale-105 group"
+              className="flex flex-col bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10"
             >
               <div className="flex items-center space-x-4 mb-2">
                 {feature.icon}
-                <h3 className="text-lg font-semibold">{feature.title}</h3>
+                <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">{feature.title}</h3>
               </div>
-              <p className="text-sm text-gray-300 transition-opacity duration-300">
+              <p className="text-sm text-white/90 transition-all duration-300">
                 <span className="block group-hover:hidden">{feature.desc}</span>
                 <span className="hidden group-hover:block">{feature.details}</span>
               </p>

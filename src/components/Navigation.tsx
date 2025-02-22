@@ -44,7 +44,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
   ];
 
   return (
-    <nav className="bg-black/30 backdrop-blur-md fixed w-full z-50">
+    <nav className="bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-lg fixed w-full z-50 border-b border-white/20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
@@ -57,7 +57,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
           <div className="flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white hover:text-blue-400"
+              className="md:hidden text-white hover:text-blue-400 transition-all duration-300"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -69,8 +69,10 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
               <button
                 key={item.name.toLowerCase()}
                 onClick={() => scrollToSection(item.href.substring(1))}
-                className={`text-white hover:text-blue-400 transition-colors ${
-                  activeSection === item.href.substring(1) ? 'border-b-2 border-blue-400' : ''
+                className={`text-white hover:text-blue-400 transition-all duration-300 ${
+                  activeSection === item.href.substring(1) 
+                    ? 'border-b-2 border-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.3)]' 
+                    : ''
                 }`}
               >
                 {item.name}
@@ -78,10 +80,10 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
             ))}
             <ShimmerButton
               onClick={() => scrollToSection('contact')}
-              className="shadow-lg"
+              className="shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
               background="rgb(37,99,235)"
               shimmerSize="0.2em"
-                          >
+            >
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
                 {t('nav.bookNow')}
               </span>
@@ -92,7 +94,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
 
         {/* Mobile navigation */}
         <div
-          className={`md:hidden absolute left-0 right-0 bg-black/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
+          className={`md:hidden absolute left-0 right-0 bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg border-b border-white/20 transition-all duration-300 ease-in-out ${
             isMenuOpen ? 'top-16 opacity-100' : '-top-96 opacity-0'
           }`}
         >
@@ -101,8 +103,10 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
               <button
                 key={item.name.toLowerCase()}
                 onClick={() => scrollToSection(item.href.substring(1))}
-                className={`text-white hover:text-blue-400 transition-colors text-left py-2 ${
-                  activeSection === item.href.substring(1) ? 'text-blue-400' : ''
+                className={`text-white hover:text-blue-400 transition-all duration-300 text-left py-2 ${
+                  activeSection === item.href.substring(1) 
+                    ? 'text-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.3)]' 
+                    : ''
                 }`}
               >
                 {item.name}
@@ -110,7 +114,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
             ))}
             <ShimmerButton
               onClick={() => scrollToSection('contact')}
-              className="w-full shadow-lg"
+              className="w-full shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
               background="rgb(37,99,235)"
             >
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
