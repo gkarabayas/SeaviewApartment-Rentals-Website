@@ -29,17 +29,17 @@ export function Hero() {
           {t('hero.subtitle')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
+          <div className="bg-gradient-to-br from-black/40 to-black/30 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <Navigation2 className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:rotate-12" />
             <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.location')}</h3>
             <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.locationDesc')}</p>
           </div>
-          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
+          <div className="bg-gradient-to-br from-black/40 to-black/30 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <Wine className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:-rotate-12" />
             <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.welcome')}</h3>
             <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.welcomeDesc')}</p>
           </div>
-          <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
+          <div className="bg-gradient-to-br from-black/40 to-black/30 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
             <Tv className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:rotate-6" />
             <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.entertainment')}</h3>
             <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.entertainmentDesc')}</p>

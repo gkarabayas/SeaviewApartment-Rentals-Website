@@ -94,7 +94,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
 
         {/* Mobile navigation */}
         <div
-          className={`md:hidden absolute left-0 right-0 bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg border-b border-white/20 transition-all duration-300 ease-in-out ${
+          className={`md:hidden absolute left-0 right-0 bg-gradient-to-br from-black/80 to-black/70 backdrop-blur-md border-b border-white/20 transition-all duration-300 ease-in-out ${
             isMenuOpen ? 'top-16 opacity-100' : '-top-96 opacity-0'
           }`}
         >
@@ -105,8 +105,8 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
                 onClick={() => scrollToSection(item.href.substring(1))}
                 className={`text-white hover:text-blue-400 transition-all duration-300 text-left py-2 ${
                   activeSection === item.href.substring(1) 
-                    ? 'text-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.3)]' 
-                    : ''
+                    ? 'text-blue-400 bg-white/10 rounded-lg px-4' 
+                    : 'px-4'
                 }`}
               >
                 {item.name}
