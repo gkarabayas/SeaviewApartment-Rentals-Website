@@ -8,6 +8,7 @@ import { Reviews } from './components/Reviews';
 import { Host } from './components/Host';
 import { Contact } from './components/Contact';
 import { Map } from './components/Map';
+import { CityVideo } from './components/CityVideo';
 
 function App() {
   const { t } = useTranslation();
@@ -66,6 +67,7 @@ function App() {
               )}
             </div>
           </div>
+          <CityVideo />
           <Features />
           <Reviews />
           <Host />
@@ -85,6 +87,7 @@ function App() {
     </div>
   );
 }
+
 
 const images = [
   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/595746092.jpg?k=6b1a45b7cf94411ada8f7de79de4a29ea893ebac973fb940f9fe8ed636dc3fed&o=&hp=1",
