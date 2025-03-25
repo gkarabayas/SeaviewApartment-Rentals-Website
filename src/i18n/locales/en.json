@@ -26,7 +26,11 @@
   },
   "cityVideo": {
     "title": "Explore the Beauty of Patras",
-    "description": "Discover the charm of this historic coastal city"
+    "description": "Discover the charm of this historic coastal city",
+    "video1": "City Tour",
+    "video2": "St. Nicholas Stairway",
+    "prevVideo": "Previous Video",
+    "nextVideo": "Next Video"
   },
   "features": {
     "title": "Apartment Features",
