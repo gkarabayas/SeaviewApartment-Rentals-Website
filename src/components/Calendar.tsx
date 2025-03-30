@@ -5,7 +5,7 @@ interface CalendarProps {
   selectedStartDate: Date;
   selectedEndDate: Date;
   readonly?: boolean;
-  onChangeClick?: () => void;  // Add new prop
+  onChangeClick?: () => void;
 }
 
 export function Calendar({ selectedStartDate, selectedEndDate, readonly = false, onChangeClick }: CalendarProps) {
@@ -29,17 +29,15 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
     }));
   };
 
-  // Helper functions first
   const getDaysInMonth = (month: number, year: number) => {
     return new Date(year, month + 1, 0).getDate();
   };
 
   const getFirstDayOfMonth = (month: number, year: number) => {
     let day = new Date(year, month, 1).getDay();
-    return day === 0 ? 6 : day - 1; // Convert to Monday-based
+    return day === 0 ? 6 : day - 1;
   };
 
-  // Then calculations using those functions
   const daysInMonth = getDaysInMonth(viewDate.month, viewDate.year);
   const firstDayOfMonth = getFirstDayOfMonth(viewDate.month, viewDate.year);
 
@@ -90,31 +88,31 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']; // Reordered days
+  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   return (
-    <div className="bg-black/30 rounded-xl p-4">
+    <div className="rounded-xl p-4">
       <div className="flex justify-between items-center mb-4">
         <button 
           onClick={goToPreviousMonth}
-          className="p-1 hover:bg-gray-700 rounded-full transition-colors"
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors"
         >
-          <ChevronLeft className="w-5 h-5 text-gray-400" />
+          <ChevronLeft className="w-5 h-5 text-gray-600" />
         </button>
-        <h4 className="text-lg font-semibold text-white">
+        <h4 className="text-lg font-semibold text-gray-900">
           {monthNames[viewDate.month]} {viewDate.year}
         </h4>
         <button 
           onClick={goToNextMonth}
-          className="p-1 hover:bg-gray-700 rounded-full transition-colors"
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors"
         >
-          <ChevronRight className="w-5 h-5 text-gray-400" />
+          <ChevronRight className="w-5 h-5 text-gray-600" />
         </button>
       </div>
 
       <div className="grid grid-cols-7 gap-1 mb-2">
         {dayNames.map(day => (
-          <div key={day} className="text-center text-sm text-gray-400 py-1">
+          <div key={day} className="text-center text-sm text-gray-500 py-1">
             {day}
           </div>
         ))}
@@ -126,7 +124,7 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
             key={`prev-${day}`}
             className={`
               h-8 flex items-center justify-center text-sm rounded-full
-              ${isDateInRange(day, month, year) ? 'bg-blue-500 text-white' : 'text-gray-600'}
+              ${isDateInRange(day, month, year) ? 'bg-[#006CE4] text-white' : 'text-gray-400'}
             `}
           >
             {day}
@@ -142,10 +140,10 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
             <div
               key={`day-${day}`}
               className={`
-                h-8 flex items-center justify-center text-sm rounded-full
-                ${isSelected ? 'bg-blue-500 text-white' : ''}
-                ${isToday && !isSelected ? 'border border-blue-400 text-blue-400' : ''}
-                ${!isSelected ? 'text-gray-300' : ''}
+                h-8 flex items-center justify-center text-sm rounded-full transition-all
+                ${isSelected ? 'bg-[#006CE4] text-white' : ''}
+                ${isToday && !isSelected ? 'border border-[#006CE4] text-[#006CE4]' : ''}
+                ${!isSelected ? 'text-gray-700' : ''}
               `}
             >
               {day}
@@ -158,7 +156,7 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
             key={`next-${day}`}
             className={`
               h-8 flex items-center justify-center text-sm rounded-full
-              ${isDateInRange(day, month, year) ? 'bg-blue-500 text-white' : 'text-gray-600'}
+              ${isDateInRange(day, month, year) ? 'bg-[#006CE4] text-white' : 'text-gray-400'}
             `}
           >
             {day}

@@ -1,4 +1,8 @@
 {
+  "welcome": {
+    "title": "Your Seaside Haven in Rio, Patras",
+    "description": "Step into a world of comfort and elegance at Sea View Apartment. Our modern retreat offers more than just accommodation – it's your personal gateway to the Ionian Sea. Every morning brings a new breathtaking view from your private balcony."
+  },
   "nav": {
     "home": "Home",
     "gallery": "Gallery",
@@ -10,7 +14,7 @@
   },
   "hero": {
     "title1": "Luxury Living ",
-    "title2": "in Patra",
+    "title2": "in Patras",
     "subtitle": "98m² of elegance with breathtaking sea and mountain views, just 2km from Patra Plage",
     "location": "Prime Location",
     "locationDesc": "150m from beachfront, near University",

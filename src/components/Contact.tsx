@@ -64,36 +64,36 @@ export function Contact() {
           onBack={handleBack}  // Pass the handler
         />
       ) : (
-        <section className="min-h-screen flex items-center justify-center px-4 py-20 relative" id="contact">
-          <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-md p-8 rounded-2xl text-white">
-            <h2 className="text-4xl font-bold mb-12 text-center">{t('contact.title')}</h2>
+        <section className="relative" id="contact">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+            <h2 className="section-title text-4xl font-semibold mb-12 text-center text-gray-900">{t('contact.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-8">
                 <div className="flex items-center space-x-4">
-                  <Phone className="w-6 h-6 text-blue-400" />
-                  <p>+30 6984610117</p>
+                  <Phone className="w-6 h-6 text-[#006CE4]" />
+                  <p className="text-gray-700">+30 6984610117</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6 text-blue-400" />
-                  <p>roswitharied@gmail.com</p>
+                  <Mail className="w-6 h-6 text-[#006CE4]" />
+                  <p className="text-gray-700">roswitharied@gmail.com</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <MapPin className="w-6 h-6 text-blue-400" />
-                  <p>Lefkotheas 8, 264 42 Patra, Greece</p>
+                  <MapPin className="w-6 h-6 text-[#006CE4]" />
+                  <p className="text-gray-700">Lefkotheas 8, 264 42 Patra, Greece</p>
                 </div>
-                <div className="bg-gradient-to-br from-white/10 to-white/20 p-6 rounded-xl mt-6">
-                  <h3 className="text-xl font-semibold mb-4">{t('contact.locationHighlights')}</h3>
-                  <ul className="space-y-2">
-                    {t('contact.nearbyPlaces', { returnObjects: true }).map((place: string, index: number) => (
+                <div className="bg-gray-50 p-6 rounded-xl mt-6 border border-gray-100 shadow-md">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-900">{t('contact.locationHighlights')}</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    {(t('contact.nearbyPlaces', { returnObjects: true }) as string[]).map((place: string, index: number) => (
                       <li key={index}>• {place}</li>
                     ))}
                   </ul>
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-white/10 to-white/20 p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-6 flex items-center">
-                    <Calendar className="w-6 h-6 mr-2 text-white-400" />
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-md">
+                  <h3 className="text-xl font-semibold mb-6 flex items-center text-gray-900">
+                    <Calendar className="w-6 h-6 mr-2 text-[#006CE4]" />
                     {t('contact.checkAvailability')}
                   </h3>
                   <div className="space-y-4">
@@ -104,7 +104,7 @@ export function Contact() {
                         type="date"
                         value={checkIn}
                         onChange={(e) => setCheckIn(e.target.value)}
-                        className="w-full p-3 rounded-lg bg-blue-400/30 border border-gray-600 text-white focus:outline-none focus:border-blue-400 cursor-pointer"
+                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4] cursor-pointer"
                         min={new Date().toISOString().split('T')[0]}
                       />
                     </label>
@@ -115,7 +115,7 @@ export function Contact() {
                         type="date"
                         value={checkOut}
                         onChange={(e) => setCheckOut(e.target.value)}
-                        className="w-full p-3 rounded-lg bg-blue-400/30 border border-gray-600 text-white focus:outline-none focus:border-blue-400 cursor-pointer"
+                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4] cursor-pointer"
                         min={checkIn || new Date().toISOString().split('T')[0]}
                       />
                     </label>
@@ -124,10 +124,10 @@ export function Contact() {
                     )}
                     <button
                       onClick={handleBooking}
-                      className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 
-                        rounded-lg transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed 
+                      className="w-full bg-[#006CE4] hover:bg-[#0052b3] text-white font-semibold py-3 px-6 
+                        rounded-lg transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed shadow-md
                         flex items-center justify-center space-x-2"
-                      disabled={!checkIn || !checkOut || isChecking || (checkIn && checkOut && 
+                      disabled={!checkIn || !checkOut || isChecking || Boolean(checkIn && checkOut && 
                         new Date(checkOut).getTime() - new Date(checkIn).getTime() < 2 * 24 * 60 * 60 * 1000)}
                     >
                       {isChecking ? (
@@ -147,31 +147,31 @@ export function Contact() {
 
           {/* Discount Popup */}
           {showDiscountPopup && (
-            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-              <div className="bg-gray-900 p-8 rounded-2xl max-w-md w-full border border-blue-400/30 relative">
+            <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+              <div className="bg-white p-8 rounded-2xl max-w-md w-full shadow-2xl relative">
                 <button 
                   onClick={() => setShowDiscountPopup(false)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   <X size={20} />
                 </button>
-                <h3 className="text-2xl font-bold text-white mb-4 text-center">{t('contact.discountPopup.title')}</h3>
-                <p className="text-gray-300 text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">{t('contact.discountPopup.title')}</h3>
+                <p className="text-gray-600 text-center mb-8">
                   {t('contact.discountPopup.description')}
                 </p>
                 <div className="space-y-4">
                   <button
                     onClick={handleContactMessage}
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white text-lg font-black py-4 px-6 
+                    className="w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 
                       rounded-lg relative overflow-hidden transform hover:scale-[1.02] transition-all duration-300
-                      shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:shadow-[0_0_25px_rgba(37,99,235,0.7)]
+                      shadow-lg hover:bg-[#0052b3]
                       tracking-wider"
                   >
                     ✨ {t('contact.discountPopup.messageButton')} 🎉
                   </button>
                   <button
                     onClick={handleBookingContinue}
-                    className="w-full border border-gray-600 hover:border-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                    className="w-full border border-gray-200 hover:border-[#006CE4] text-gray-700 hover:text-[#006CE4] font-semibold py-3 px-6 rounded-lg transition-colors"
                   >
                     {t('contact.discountPopup.bookingButton')}
                   </button>

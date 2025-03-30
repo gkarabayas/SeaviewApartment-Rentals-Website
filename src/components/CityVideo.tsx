@@ -1,5 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Component gia to section tou video tis polis
@@ -7,80 +6,84 @@ export const CityVideo: React.FC = () => {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [videoKey, setVideoKey] = useState(0); // Key gia na kanei remount to video element
-  const [isLoaded, setIsLoaded] = useState(false); // State gia to video loading
+  const [videoKey, setVideoKey] = useState(Date.now()); // Use timestamp for unique key
 
-  // Handler gia to video loading - mono gia arxikopoiisi
-  const handleLoadedMetadata = useCallback(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0; // Ksekinama panta apo tin arxi
-    }
-    setIsLoaded(true);
-  }, []);
-  
-  // Array me ta videos kai ta titles tous
-  console.log('Current video index:', currentVideoIndex);
+  // Array me ta videos kai ta titles tous (poster property removed)
   const videos = [
-    { src: '/videos/patras.mp4', title: t('cityVideo.video1') },
-    { src: '/videos/patras2.mp4', title: t('cityVideo.video2') }
+    {
+      src: '/videos/patras.mp4',
+      title: t('cityVideo.video1'),
+    },
+    {
+      src: '/videos/patras2.mp4',
+      title: t('cityVideo.video2'),
+    }
   ];
 
-  // Handler gia allagi video - apli enallagi metaxi 0 kai 1
-  const handleVideoChange = useCallback((direction: 'next' | 'prev') => {
-    setCurrentVideoIndex(prev => {
-      const newIndex = direction === 'next' ? 
-        (prev + 1) % videos.length : 
-        prev === 0 ? videos.length - 1 : prev - 1;
-      
-      console.log('Switching to video index:', newIndex);
-      console.log('Video source will be:', videos[newIndex].src);
-      
-      // Force video element na kanei remount
-      setVideoKey(k => k + 1);
-      
-      // Stamatame to current video
-      if (videoRef.current) {
-        videoRef.current.pause();
-        videoRef.current.currentTime = 0;
-      }
-      
-      return newIndex;
-    });
-  }, [videos.length]);
+  // Handler gia allagi video - when clicking the buttons
+  const handleVideoSwitch = useCallback((index: number) => {
+    if (index === currentVideoIndex) return; // Do nothing if clicking the current video button
+
+    // Optional: Pause current video before remounting
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+
+    setCurrentVideoIndex(index);
+    setVideoKey(Date.now()); // Update key to force remount
+
+  }, [currentVideoIndex]); // Dependency includes currentVideoIndex
 
   // Handler gia error sto video loading
-  const handleVideoError = useCallback(() => {
-    console.error('Video loading error for index:', currentVideoIndex);
-    console.error('Attempted video source:', videos[currentVideoIndex].src);
-  }, [currentVideoIndex, videos]);
+  const handleVideoError = useCallback((e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    const error = (e.target as HTMLVideoElement).error;
+    console.error(`Video loading error for index ${currentVideoIndex}. Code: ${error?.code}, Message: ${error?.message}`);
+    console.error('Video Error Event:', e);
+    // You could display an error message to the user here if needed
+  }, [currentVideoIndex]);
+
+  // Handler to attempt showing the first frame on metadata load
+  const handleLoadedMetadata = useCallback(() => {
+    if (videoRef.current) {
+        // WORKAROUND: Try seeking to a very early time to show the first frame
+        // May not work reliably on all browsers/devices (especially iOS)
+        videoRef.current.currentTime = 0.1;
+    }
+  }, []); // No dependencies needed here
+
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
-        <h2 className="text-4xl font-bold mb-4 text-center">
+    <div className="section-container">
+      <div className="content-card section-inner">
+        <h2 className="section-title mb-5">
           {t('cityVideo.title')}
         </h2>
-        <p className="text-lg text-center mb-8 text-white/80">
+        <p className="text-lg text-center mb-10 text-gray-600">
           {t('cityVideo.description')}
         </p>
         <div className="flex flex-col items-center space-y-6">
           {/* Container gia to video kai ta koubia */}
           <div className="flex flex-col items-center space-y-4">
             {/* Video container me stathero megethos */}
-            <div className="w-full max-w-[400px]">
-              <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
+            <div className="w-full max-w-[500px]">
+                {/* Original aspect ratio and styling */}
+              <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-white relative group">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
                 <video
-                  key={videoKey}
+                  key={videoKey} // Force remount on video source change
                   ref={videoRef}
-                  className="w-full h-full object-cover"
-                  playsInline
-                  controls
-                  controlsList="nodownload"
-                  preload="metadata"
-                  onLoadedMetadata={handleLoadedMetadata}
+                  className="w-full h-full object-cover bg-black" // Keep object-cover & bg-black fallback
+                  playsInline // Crucial for iOS inline playback
+                  controls // Show browser's default play/pause/seek controls
+                  controlsList="nodownload" // Optional: Hide download button
+                  preload="metadata" // Load dimensions/duration
+                  // NO poster ATTRIBUTE
+                  
+                  // Essential Event Handlers
                   onError={handleVideoError}
-                  poster={currentVideoIndex === 0 ? `${videos[0].src}#t=14` : `${videos[1].src}#t=0.1`}
+                  onLoadedMetadata={handleLoadedMetadata} // Trigger the seek attempt
                 >
+                  {/* Use source tag for better compatibility & clarity */}
                   <source src={videos[currentVideoIndex].src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -88,23 +91,17 @@ export const CityVideo: React.FC = () => {
             </div>
 
             {/* Koumpia gia enallagi video */}
-            <div className="grid grid-cols-2 gap-4 w-full max-w-[400px]">
+            {/* Original button container structure and classes */}
+            <div className="grid grid-cols-2 gap-4 w-full max-w-[500px]">
               {videos.map((video, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    setCurrentVideoIndex(index);
-                    setVideoKey(k => k + 1);
-                    setIsLoaded(false);
-                    if (videoRef.current) {
-                      videoRef.current.pause();
-                      videoRef.current.currentTime = 0;
-                    }
-                  }}
-                  className={`p-4 rounded-lg text-center transition-all duration-200 ${
+                  onClick={() => handleVideoSwitch(index)}
+                  // Original button classes and active/inactive logic
+                  className={`p-4 rounded-lg text-center transition-all duration-300 shadow-md ${
                     index === currentVideoIndex
-                      ? 'bg-white text-black font-semibold'
-                      : 'bg-white/10 text-white hover:bg-white/20'
+                      ? 'bg-[#006CE4] text-white font-semibold scale-105' // Active state
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-100' // Inactive state
                   }`}
                 >
                   {video.title}

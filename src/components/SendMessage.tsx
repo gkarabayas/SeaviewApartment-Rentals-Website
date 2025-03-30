@@ -54,7 +54,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
         'service_x9gm8d8',
         'template_w1sr54t',
         {
-          to_email: 'roswitharied@gmail.com', // Update this line
+          to_email: 'roswitharied@gmail.com',
           from_name: name,
           from_email: email,
           message: message,
@@ -76,8 +76,8 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-black/40 backdrop-blur-md rounded-2xl">
-      <h2 className="text-3xl font-bold text-white mb-8 text-center">
+    <div className="max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-lg">
+      <h2 className="section-title text-3xl font-semibold text-gray-900 mb-8 text-center">
         {t('sendMessage.title')}
       </h2>
       
@@ -85,27 +85,29 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
         {/* Calendar Section */}
         <div className="space-y-4">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-semibold text-white">
+            <h3 className="text-xl font-semibold text-gray-900">
               {t('sendMessage.selectedDates')}
             </h3>
             <button 
               onClick={onBack}
-              className="text-sm text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
+              className="text-sm text-[#006CE4] hover:text-[#0052b3] transition-colors flex items-center gap-2"
             >
-                {t('sendMessage.changeButton')}
+              {t('sendMessage.changeButton')}
             </button>
           </div>
-          <Calendar
-            selectedStartDate={new Date(checkIn)}
-            selectedEndDate={new Date(checkOut)}
-            readonly={true}
-          />
+          <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+            <Calendar
+              selectedStartDate={new Date(checkIn)}
+              selectedEndDate={new Date(checkOut)}
+              readonly={true}
+            />
+          </div>
         </div>
 
         {/* Form Section */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
               {t('sendMessage.nameLabel')}
             </label>
             <input
@@ -113,13 +115,13 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 rounded-lg bg-blue-400/10 border border-gray-600 text-white focus:outline-none focus:border-blue-400"
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
               {t('sendMessage.emailLabel')}
             </label>
             <input
@@ -127,33 +129,33 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 rounded-lg bg-blue-400/10 border border-gray-600 text-white focus:outline-none focus:border-blue-400"
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
               {t('sendMessage.messageLabel')}
             </label>
             <textarea
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              rows={5}  // Increased from 4 to 5
-              className="w-full p-3 rounded-lg bg-blue-400/10 border border-gray-600 text-white focus:outline-none focus:border-blue-400 text-lg"  // Added text-lg
+              rows={5}
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
               required
             />
           </div>
 
           {status === 'success' && (
-            <div className="text-green-400 text-sm mb-4">
+            <div className="text-green-600 text-sm mb-4 bg-green-50 p-3 rounded-lg">
               {t('sendMessage.successMessage')}
             </div>
           )}
 
           {status === 'error' && (
-            <div className="text-red-400 text-sm mb-4">
+            <div className="text-red-600 text-sm mb-4 bg-red-50 p-3 rounded-lg">
               {t('sendMessage.errorMessage')}
             </div>
           )}
@@ -161,8 +163,8 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg 
-              transition-colors flex items-center justify-center space-x-2"
+            className="w-full bg-[#006CE4] hover:bg-[#0052b3] disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg 
+              transition-colors flex items-center justify-center space-x-2 shadow-md"
           >
             {isLoading ? (
               <Loader2 size={20} className="animate-spin" />
