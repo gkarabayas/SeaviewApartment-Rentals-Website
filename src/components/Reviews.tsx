@@ -58,19 +58,23 @@ export function Reviews() {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20" id="reviews">
-      <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
-        <h2 className="text-4xl font-bold mb-12 text-center">{t('reviews.title')}</h2>
+    <section className="page-section" id="reviews">
+      <div className="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-2xl text-gray-900 
+      shadow-[0_0_50px_0_rgba(0,0,0,0.1)] 
+      hover:shadow-[0_0_50px_0_rgba(0,0,0,0.15)] 
+      transition-all duration-300
+      border border-gray-100">
+        <h2 className="section-title text-4xl font-semibold mb-12 text-center">{t('reviews.title')}</h2>
         <div className="grid grid-cols-1 gap-8">
           {visibleReviews.map((review, index) => (
             <div 
               key={index} 
-              className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10"
+              className="bg-white p-6 rounded-xl transition-all duration-300 hover:scale-105 group cursor-pointer hover:shadow-lg border border-gray-100"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-white">{review.name}</h3>
-                  <p className="text-white/80 flex items-center gap-2">
+                  <h3 className="text-xl font-semibold text-gray-900">{review.name}</h3>
+                  <p className="text-gray-600 flex items-center gap-2">
                     {review.country}
                     {React.createElement(countryComponents[review.country], {
                       className: "w-6 h-4"
@@ -79,14 +83,14 @@ export function Reviews() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <span className="font-bold text-white">{review.score}/10</span>
+                  <span className="font-bold text-gray-900">{review.score}/10</span>
                 </div>
               </div>
-              <div className="text-sm text-white/70 mb-2">
+              <div className="text-sm text-gray-500 mb-2">
                 {review.stay} · {review.date} · {review.type}
               </div>
-              <h4 className="font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{review.title}</h4>
-              <p className="text-white/90">{review.text}</p>
+              <h4 className="font-semibold mb-2 text-gray-900 group-hover:text-[#006CE4] transition-colors">{review.title}</h4>
+              <p className="text-gray-600">{review.text}</p>
             </div>
           ))}
         </div>
@@ -95,7 +99,7 @@ export function Reviews() {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAllReviews(true)}
-              className="px-6 py-2 bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-lg border border-white/20 rounded-full hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 text-white"
+              className="px-6 py-2 bg-[#006CE4] rounded-full hover:bg-[#0052b3] transition-colors text-white font-semibold shadow-md"
             >
               {t('reviews.showMore')}
             </button>

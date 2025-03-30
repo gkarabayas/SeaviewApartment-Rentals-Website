@@ -1,62 +1,44 @@
 import React from 'react';
-import { Navigation2, Wine, Wifi, Tv } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import PulsatingButton from "./ui/pulsating-button.tsx";
-import AnimatedGradientText from "./ui/animated-gradient-text";
 
 export function Hero() {
-  const { t, i18n } = useTranslation();
-  
-  console.log('Hero - Current language:', i18n.language);
-  console.log('Hero - Translation test:', t('hero.title'));
+  const { t } = useTranslation();
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 animate-fade-in">
-      <div className="max-w-4xl w-full bg-gradient-to-br from-white/10 to-white/20 backdrop-blur-lg p-8 rounded-2xl text-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-6">
-          <AnimatedGradientText>
-            <span className="text-3xl sm:text-4xl md:text-5xl font-bold">
-              {t('hero.title1')}
-            </span>
-          </AnimatedGradientText>
-          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            {t('hero.title2')}
-          </span>
-        </div>
-        <p 
-          className="text-xl mb-8 animate-fade-up [animation-delay:500ms] text-white"
-        >
+    <section className="h-screen relative flex items-center justify-center text-center px-10">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-[url('/images/background2.png')] bg-cover bg-center"
+        aria-hidden="true"
+      />
+      
+      {/* Dark overlay */}
+      <div 
+        className="absolute inset-0 bg-black/40"
+        aria-hidden="true"
+      />
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-semibold text-white mb-8">
+          {t('hero.title1')} <span className="block mt-3">{t('hero.title2')}</span>
+        </h1>
+        <p className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto font-normal">
           {t('hero.subtitle')}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.4)] backdrop-blur-[8px] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
-            <Navigation2 className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:rotate-12" />
-            <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.location')}</h3>
-            <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.locationDesc')}</p>
-          </div>
-          <div className="bg-gradient-to-br from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.4)] backdrop-blur-[8px] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
-            <Wine className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:-rotate-12" />
-            <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.welcome')}</h3>
-            <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.welcomeDesc')}</p>
-          </div>
-          <div className="bg-gradient-to-br from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.4)] backdrop-blur-[8px] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 group cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-white/10">
-            <Tv className="w-8 h-8 mb-4 text-blue-400 transform transition-transform duration-500 group-hover:rotate-6" />
-            <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-400 transition-colors">{t('hero.entertainment')}</h3>
-            <p className="text-white transform transition-all duration-500 group-hover:translate-x-2">{t('hero.entertainmentDesc')}</p>
-          </div>
-        </div>
-        <div className="flex justify-center items-center mt-8">
-          <PulsatingButton
-            onClick={() => {
-              const contactElement = document.getElementById('contact');
-              if (contactElement) {
-                contactElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
-            {t('hero.button')}
-          </PulsatingButton>
-        </div>
+        <button
+          onClick={scrollToContact}
+          className="bg-[#006CE4] text-white px-6 py-4 rounded-2xl text-xl font-semibold hover:bg-[#0052b3] transition-colors shadow-lg"
+        >
+          {t('hero.button')}
+        </button>
       </div>
     </section>
   );

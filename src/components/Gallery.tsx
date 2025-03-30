@@ -38,10 +38,11 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center">
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 text-white hover:text-blue-400 transition-colors z-50"
+        className="absolute top-6 right-6 text-white hover:text-[#006CE4] transition-all duration-300 
+          transform hover:scale-110 z-50"
         aria-label="Close gallery"
       >
         <X size={32} />
@@ -51,39 +52,51 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
         <div className="relative w-full h-full flex items-center justify-center">
           <button
             onClick={prevImage}
-            className="absolute left-2 md:left-4 z-10 text-white hover:text-blue-400 transition-colors"
+            className="absolute left-4 md:left-8 z-10 p-2 rounded-full bg-black/50 text-white 
+              hover:bg-[#006CE4] hover:text-white transition-all duration-300 transform hover:scale-105"
             aria-label="Previous image"
           >
-            <ChevronLeft size={48} />
+            <ChevronLeft size={32} />
           </button>
           
-          <img
-            src={images[currentIndex]}
-            alt={`Gallery image ${currentIndex + 1}`}
-            className="max-h-[90vh] max-w-[90vw] object-contain"
-            loading="lazy"
-          />
+          <div className="relative group">
+            <img
+              src={images[currentIndex]}
+              alt={`Gallery image ${currentIndex + 1}`}
+              className="max-h-[85vh] max-w-[85vw] object-contain rounded-lg shadow-2xl"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 ring-1 ring-white/10 rounded-lg"></div>
+          </div>
           
           <button
             onClick={nextImage}
-            className="absolute right-2 md:right-4 z-10 text-white hover:text-blue-400 transition-colors"
+            className="absolute right-4 md:right-8 z-10 p-2 rounded-full bg-black/50 text-white 
+              hover:bg-[#006CE4] hover:text-white transition-all duration-300 transform hover:scale-105"
             aria-label="Next image"
           >
-            <ChevronRight size={48} />
+            <ChevronRight size={32} />
           </button>
         </div>
 
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 overflow-x-auto max-w-full px-4">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 
+          overflow-x-auto max-w-full px-4 py-2 bg-black/50 rounded-full backdrop-blur-sm">
           {images.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? 'w-4 bg-blue-400' : 'bg-white/50'
+                idx === currentIndex 
+                  ? 'w-6 bg-[#006CE4]' 
+                  : 'bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Go to image ${idx + 1}`}
             />
           ))}
+        </div>
+
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white/70 text-sm">
+          {currentIndex + 1} / {images.length}
         </div>
       </div>
     </div>
