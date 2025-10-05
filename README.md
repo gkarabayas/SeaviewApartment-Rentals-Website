@@ -1,4 +1,6 @@
-#  Seaview Apartment Patra - Custom Rental Website 
+#  🏠 Seaview Apartment Patra - Custom Rental Website 
+
+<img width="2522" height="1237" alt="image" src="https://github.com/user-attachments/assets/752359f6-ac21-4ca8-a0f9-2a4d2f501de1" />
 
 > This project showcases a custom-designed, full-stack website developed from scratch for Seaview Apartment Patra, a premium accommodation property. My client, the apartment owner, sought a dedicated online presence to complement their Booking.com listing and provide potential guests with a richer, more engaging experience.
 
