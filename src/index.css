@@ -73,7 +73,7 @@
 
   /* Consistent section spacing */
   .page-section {
-    @apply py-16;
+    @apply py-8;
   }
 
   /* Card styling */
@@ -86,7 +86,7 @@
 
   /* Typography */
   .section-title {
-    @apply text-4xl font-semibold text-gray-900 mb-12 text-center  ;
+    @apply text-4xl font-semibold text-gray-900 mb-6 text-center;
   }
 
   .section-description {

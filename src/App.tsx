@@ -10,6 +10,7 @@ import { Host } from './components/Host';
 import { Contact } from './components/Contact';
 import { Map } from './components/Map';
 import { CityVideo } from './components/CityVideo';
+import { PatrasExplore } from './components/PatrasExplore';
 
 // Define images array outside the component or ensure it's stable if inside
 const images = [
@@ -60,12 +61,12 @@ function App() {
 
           {/* Gallery Section */}
           <div id="gallery" className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
-            <div className="section-container"> {/* Use consistent section wrapping if needed */}
-              <div className="content-card section-inner"> {/* Use consistent section wrapping if needed */}
-                <h2 className="section-title text-4xl font-semibold text-gray-900 mb-12 text-center">
+            <div className="max-w-7xl mx-auto px-2 md:px-4"> {/* Less padding on mobile */}
+              <div className="content-card p-3 md:p-6"> {/* Less padding on mobile */}
+                <h2 className="section-title text-3xl md:text-4xl font-semibold text-gray-900 mb-4 md:mb-6 text-center">
                   {t('gallery.title')}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                   {images.slice(0, showAllImages ? images.length : 6).map((image, index) => (
                     <div
                       key={index}
@@ -126,6 +127,9 @@ function App() {
           <div className="section-light page-section"> {/* Use consistent section wrapping if needed */}
             <Map />
           </div>
+
+          {/* Patras Explore Sections */}
+          <PatrasExplore />
 
           <div className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
             <Contact />
