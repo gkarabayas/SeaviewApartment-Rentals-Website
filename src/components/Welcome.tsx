@@ -20,11 +20,10 @@ export function Welcome() {
           {/* Right side: Image */}
           <div className="relative group">
             <img 
-              src="/images/balcony.png" 
-              alt="Balcony View"
-              className="rounded-2xl shadow-lg w-full transform transition-transform duration-300 group-hover:scale-[1.02]"
+              src="/images/award_2025.png" 
+              alt="Booking Award 2025"
+              className="rounded-2xl shadow-lg w-3/4 max-w-md mx-auto transform transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 rounded-2xl border border-[#006CE4]/10 pointer-events-none"></div>
           </div>
         </div>
       </div>
