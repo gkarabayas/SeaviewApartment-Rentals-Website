@@ -19,8 +19,8 @@ export function Welcome() {
           </div>
           {/* Right side: Image */}
           <div className="relative group">
-            <img 
-              src="/images/award_2025.png" 
+            <img
+              src="/images/award_2025.png"
               alt="Booking Award 2025"
               className="rounded-2xl shadow-lg w-3/4 max-w-md mx-auto transform transition-transform duration-300 group-hover:scale-[1.02]"
             />
