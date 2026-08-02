@@ -96,9 +96,9 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/20 text-white transition-colors hover:bg-white/15"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/20 text-white transition-colors hover:bg-white/15"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={21} /> : <Menu size={21} />}
             </button>
           </div>
         </div>

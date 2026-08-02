@@ -38,6 +38,12 @@
   },
   "features": {
     "title": "Apartment Features",
+    "subtitle": "Everything you need for an effortless, comfortable stay by the sea.",
+    "groups": {
+      "comfort": "Comfort",
+      "lifestyle": "Views & entertainment",
+      "convenience": "Kitchen & convenience"
+    },
     "bedrooms": {
       "title": "2 Bedrooms",
       "desc": "Each with comfortable double beds",

@@ -16,43 +16,78 @@ import Coffee from 'lucide-react/dist/esm/icons/coffee.js';
 export function Features() {
   const { t } = useTranslation();
 
-  const features = [
-    { icon: <Bed className="w-8 h-8 text-[#006CE4]" />, title: t('features.bedrooms.title'), desc: t('features.bedrooms.desc'), details: t('features.bedrooms.details') },
-    { icon: <Bath className="w-8 h-8 text-[#006CE4]" />, title: t('features.bathrooms.title'), desc: t('features.bathrooms.desc'), details: t('features.bathrooms.details') },
-    { icon: <UtensilsCrossed className="w-8 h-8 text-[#006CE4]" />, title: t('features.kitchen.title'), desc: t('features.kitchen.desc'), details: t('features.kitchen.details') },
-    { icon: <Flame className="w-8 h-8 text-[#006CE4]" />, title: t('features.fireplace.title'), desc: t('features.fireplace.desc'), details: t('features.fireplace.details') },
-    { icon: <Waves className="w-8 h-8 text-[#006CE4]" />, title: t('features.seaview.title'), desc: t('features.seaview.desc'), details: t('features.seaview.details') },
-    { icon: <Mountain className="w-8 h-8 text-[#006CE4]" />, title: t('features.mountainview.title'), desc: t('features.mountainview.desc'), details: t('features.mountainview.details') },
-    { icon: <Wind className="w-8 h-8 text-[#006CE4]" />, title: t('features.airconditioning.title'), desc: t('features.airconditioning.desc'), details: t('features.airconditioning.details') },
-    { icon: <Utensils className="w-8 h-8 text-[#006CE4]" />, title: t('features.bbq.title'), desc: t('features.bbq.desc'), details: t('features.bbq.details') },
-    { icon: <Car className="w-8 h-8 text-[#006CE4]" />, title: t('features.parking.title'), desc: t('features.parking.desc'), details: t('features.parking.details') },
-    { icon: <Wifi className="w-8 h-8 text-[#006CE4]" />, title: t('features.wifi.title'), desc: t('features.wifi.desc'), details: t('features.wifi.details') },
-    { icon: <Tv className="w-8 h-8 text-[#006CE4]" />, title: t('features.tv.title'), desc: t('features.tv.desc'), details: t('features.tv.details') },
-    { icon: <Coffee className="w-8 h-8 text-[#006CE4]" />, title: t('features.coffeestation.title'), desc: t('features.coffeestation.desc'), details: t('features.coffeestation.details') }
+  const amenities = {
+    bedrooms: { icon: Bed, title: t('features.bedrooms.title'), desc: t('features.bedrooms.desc'), details: t('features.bedrooms.details') },
+    bathrooms: { icon: Bath, title: t('features.bathrooms.title'), desc: t('features.bathrooms.desc') },
+    kitchen: { icon: UtensilsCrossed, title: t('features.kitchen.title'), desc: t('features.kitchen.desc'), details: t('features.kitchen.details') },
+    fireplace: { icon: Flame, title: t('features.fireplace.title'), desc: t('features.fireplace.desc') },
+    seaview: { icon: Waves, title: t('features.seaview.title'), desc: t('features.seaview.desc'), details: t('features.seaview.details') },
+    mountainview: { icon: Mountain, title: t('features.mountainview.title'), desc: t('features.mountainview.desc') },
+    airconditioning: { icon: Wind, title: t('features.airconditioning.title'), desc: t('features.airconditioning.desc') },
+    bbq: { icon: Utensils, title: t('features.bbq.title'), desc: t('features.bbq.desc') },
+    parking: { icon: Car, title: t('features.parking.title'), desc: t('features.parking.desc') },
+    wifi: { icon: Wifi, title: t('features.wifi.title'), desc: t('features.wifi.desc') },
+    tv: { icon: Tv, title: t('features.tv.title'), desc: t('features.tv.desc') },
+    coffee: { icon: Coffee, title: t('features.coffeestation.title'), desc: t('features.coffeestation.desc') },
+  };
+
+  const featuredAmenities = [amenities.seaview, amenities.bedrooms, amenities.kitchen];
+  const amenityGroups = [
+    { title: t('features.groups.comfort'), items: [amenities.bathrooms, amenities.fireplace, amenities.airconditioning] },
+    { title: t('features.groups.lifestyle'), items: [amenities.mountainview, amenities.tv, amenities.wifi] },
+    { title: t('features.groups.convenience'), items: [amenities.coffee, amenities.bbq, amenities.parking] },
   ];
 
   return (
     <section className="page-section" id="features">
-      <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl text-gray-900 shadow-lg">
-        <h2 className="section-title text-4xl font-semibold mb-12 text-center text-gray-900">
-          {t('features.title')}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex flex-col bg-white p-6 rounded-xl transition-all duration-300 hover:scale-[1.02] group 
-                cursor-pointer hover:shadow-lg border border-gray-100 hover:border-[#006CE4]/20"
-            >
-              <div className="flex items-center space-x-4 mb-3">
-                {feature.icon}
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#006CE4] transition-colors">{feature.title}</h3>
+      <div className="mx-auto max-w-6xl rounded-2xl border border-gray-100 bg-white p-6 text-gray-900 shadow-lg md:p-10">
+        <div className="mb-10 text-center md:mb-12">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#006CE4]">Sea View Apartment</p>
+          <h2 className="section-title mb-3 text-4xl font-semibold text-gray-900 md:text-5xl">
+            {t('features.title')}
+          </h2>
+          <p className="mx-auto max-w-xl text-sm leading-relaxed text-slate-500 md:text-base">{t('features.subtitle')}</p>
+        </div>
+
+        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          {featuredAmenities.map((amenity) => {
+            const Icon = amenity.icon;
+
+            return (
+              <article
+                key={amenity.title}
+                className="relative min-h-[240px] overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 text-gray-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-7"
+              >
+                <div className="mb-10 grid h-12 w-12 place-items-center rounded-xl bg-[#006CE4]/10 text-[#006CE4]">
+                  <Icon size={25} />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">{amenity.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600">{amenity.details ?? amenity.desc}</p>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
+          {amenityGroups.map((group) => (
+            <section key={group.title} className="rounded-2xl border border-gray-100 bg-white p-5">
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.16em] text-slate-500">{group.title}</h3>
+              <div className="space-y-1">
+                {group.items.map((amenity) => {
+                  const Icon = amenity.icon;
+
+                  return (
+                    <div key={amenity.title} className="flex gap-3 rounded-xl px-2 py-3 transition-colors hover:bg-slate-50">
+                      <div className="mt-0.5 text-[#006CE4]"><Icon size={20} /></div>
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-900">{amenity.title}</h4>
+                        <p className="mt-0.5 text-xs leading-relaxed text-slate-500">{amenity.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <p className="text-sm text-gray-600 transition-all duration-300">
-                <span className="block group-hover:hidden">{feature.desc}</span>
-                <span className="hidden group-hover:block">{feature.details}</span>
-              </p>
-            </div>
+            </section>
           ))}
         </div>
       </div>

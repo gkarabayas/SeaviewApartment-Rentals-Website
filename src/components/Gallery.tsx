@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left.js';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right.js';
 import X from 'lucide-react/dist/esm/icons/x.js';
@@ -12,6 +12,7 @@ interface GalleryProps {
 
 export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: GalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(initialImageIndex);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     setCurrentIndex(initialImageIndex);
@@ -39,19 +40,41 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const startX = touchStartX.current;
+    const endX = event.changedTouches[0]?.clientX;
+    touchStartX.current = null;
+
+    if (startX === null || endX === undefined || Math.abs(startX - endX) < 50) return;
+
+    if (startX > endX) {
+      nextImage();
+    } else {
+      prevImage();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-[3000] flex items-center justify-center bg-black/95 backdrop-blur-sm">
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 text-white hover:text-[#006CE4] transition-all duration-300 
-          transform hover:scale-110 z-50"
+        className="absolute right-4 top-4 z-20 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-black/60 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#006CE4] hover:text-[#006CE4] md:right-6 md:top-6"
         aria-label="Close gallery"
       >
-        <X size={32} />
+        <X size={26} />
       </button>
 
       <div className="flex flex-col items-center w-full h-full">
-        <div className="relative w-full h-full flex items-center justify-center">
+        <div
+          className="relative flex h-full w-full touch-pan-y select-none items-center justify-center"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={() => { touchStartX.current = null; }}
+        >
           <button
             onClick={prevImage}
             className="absolute left-4 md:left-8 z-10 p-2 rounded-full bg-black/50 text-white 
