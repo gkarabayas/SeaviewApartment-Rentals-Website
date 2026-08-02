@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Home, Train, Bus, Wine, Church, Ticket } from 'lucide-react';
+import Home from 'lucide-react/dist/esm/icons/home.js';
+import Train from 'lucide-react/dist/esm/icons/train.js';
+import Bus from 'lucide-react/dist/esm/icons/bus.js';
+import Wine from 'lucide-react/dist/esm/icons/wine.js';
+import Church from 'lucide-react/dist/esm/icons/church.js';
+import Ticket from 'lucide-react/dist/esm/icons/ticket.js';
 import { useTranslation } from 'react-i18next';
 
 export function Host() {

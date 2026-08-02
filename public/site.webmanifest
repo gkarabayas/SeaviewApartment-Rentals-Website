@@ -1,0 +1,8 @@
+{
+  "name": "Sea View Apartment Patra",
+  "short_name": "Sea View Apartment",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#006CE4"
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Calendar } from './Calendar';
-import { Send, Loader2 } from 'lucide-react';
+import Send from 'lucide-react/dist/esm/icons/send.js';
+import Loader2 from 'lucide-react/dist/esm/icons/loader-2.js';
 import emailjs from '@emailjs/browser';
 
 // Add this at the top of your file, after imports

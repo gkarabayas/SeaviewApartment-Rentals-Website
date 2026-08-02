@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Calendar, X } from 'lucide-react';
+import Phone from 'lucide-react/dist/esm/icons/phone.js';
+import Mail from 'lucide-react/dist/esm/icons/mail.js';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin.js';
+import Calendar from 'lucide-react/dist/esm/icons/calendar.js';
+import Send from 'lucide-react/dist/esm/icons/send.js';
+import X from 'lucide-react/dist/esm/icons/x.js';
 import { useTranslation } from 'react-i18next';
 import { SendMessage } from './SendMessage';
 
 export function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
@@ -47,6 +52,21 @@ export function Contact() {
 
   const handleContactMessage = () => {
     setShowMessageForm(true);
+    setShowDiscountPopup(false);
+  };
+
+  const handleEmailClient = () => {
+    const formatDate = (dateString: string) => new Intl.DateTimeFormat(
+      i18n.language === 'gr' ? 'el' : 'en',
+      { day: 'numeric', month: 'long', year: 'numeric' }
+    ).format(new Date(dateString));
+
+    const message = t('sendMessage.defaultMessage')
+      .replace('{startDate}', formatDate(checkIn))
+      .replace('{endDate}', formatDate(checkOut));
+    const subject = `Direct booking enquiry: ${checkIn} – ${checkOut}`;
+
+    window.location.href = `mailto:roswitharied@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
     setShowDiscountPopup(false);
   };
 
@@ -161,8 +181,15 @@ export function Contact() {
                 </p>
                 <div className="space-y-4">
                   <button
+                    onClick={handleEmailClient}
+                    className="w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 rounded-lg transition-all shadow-lg hover:bg-[#0052b3] hover:scale-[1.02] flex items-center justify-center space-x-2"
+                  >
+                    <Send size={20} />
+                    <span>{t('contact.discountPopup.emailButton', { defaultValue: 'Email Us Directly' })}</span>
+                  </button>
+                  <button
                     onClick={handleContactMessage}
-                    className="w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 
+                    className="hidden w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 
                       rounded-lg relative overflow-hidden transform hover:scale-[1.02] transition-all duration-300
                       shadow-lg hover:bg-[#0052b3]
                       tracking-wider"

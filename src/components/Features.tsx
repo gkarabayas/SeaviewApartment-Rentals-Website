@@ -1,6 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Bed, Bath, UtensilsCrossed, Car, Wifi, Mountain, Waves, Flame, Wind, Tv, Utensils, Coffee } from 'lucide-react';
+import Bed from 'lucide-react/dist/esm/icons/bed.js';
+import Bath from 'lucide-react/dist/esm/icons/bath.js';
+import UtensilsCrossed from 'lucide-react/dist/esm/icons/utensils-crossed.js';
+import Car from 'lucide-react/dist/esm/icons/car.js';
+import Wifi from 'lucide-react/dist/esm/icons/wifi.js';
+import Mountain from 'lucide-react/dist/esm/icons/mountain.js';
+import Waves from 'lucide-react/dist/esm/icons/waves.js';
+import Flame from 'lucide-react/dist/esm/icons/flame.js';
+import Wind from 'lucide-react/dist/esm/icons/wind.js';
+import Tv from 'lucide-react/dist/esm/icons/tv.js';
+import Utensils from 'lucide-react/dist/esm/icons/utensils.js';
+import Coffee from 'lucide-react/dist/esm/icons/coffee.js';
 
 export function Features() {
   const { t } = useTranslation();

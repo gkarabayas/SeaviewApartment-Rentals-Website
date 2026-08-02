@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star } from 'lucide-react';
+import Star from 'lucide-react/dist/esm/icons/star.js';
 import { GR, AU, AL } from 'country-flag-icons/react/3x2';
 import { useTranslation } from 'react-i18next';
 

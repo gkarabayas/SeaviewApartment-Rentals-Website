@@ -146,6 +146,7 @@
     "discountPopup": {
       "title": "Special Offer!",
       "description": "Get a 15% discount when you book directly with us!",
+      "emailButton": "Email Us Directly",
       "messageButton": "Send Us A Message",
       "bookingButton": "Continue to Booking.com"
     },
@@ -157,7 +158,7 @@
     "title": "Location"
   },
   "footer": {
-    "copyright": "Copyright © 2024 Sea View Apartment - All Rights Reserved"
+    "copyright": "Copyright © 2026 Sea View Apartment - All Rights Reserved"
   },
   "sendMessage": {
     "title": "Send Us A Message",

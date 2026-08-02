@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Menu from 'lucide-react/dist/esm/icons/menu.js';
+import X from 'lucide-react/dist/esm/icons/x.js';
 import { useTranslation } from 'react-i18next';
 import { LanguageSelector } from './LanguageSelector';
 import ShimmerButton from "./ui/shimmer-button";
