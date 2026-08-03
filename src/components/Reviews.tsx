@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Star from 'lucide-react/dist/esm/icons/star.js';
+import Quote from 'lucide-react/dist/esm/icons/quote.js';
 import { GR, AU, AL } from 'country-flag-icons/react/3x2';
 import { useTranslation } from 'react-i18next';
 
@@ -58,48 +59,47 @@ export function Reviews() {
   const { t } = useTranslation();
 
   return (
-    <section className="page-section" id="reviews">
-      <div className="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-2xl text-gray-900 
-      shadow-[0_0_50px_0_rgba(0,0,0,0.1)] 
-      hover:shadow-[0_0_50px_0_rgba(0,0,0,0.15)] 
-      transition-all duration-300
-      border border-gray-100">
-        <h2 className="section-title text-4xl font-semibold mb-12 text-center">{t('reviews.title')}</h2>
-        <div className="grid grid-cols-1 gap-8">
+    <section id="reviews">
+      <div className="mx-auto w-full max-w-[90rem] px-4 text-gray-900 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-8 max-w-2xl text-center md:mb-10">
+          <h2 className="font-['Playfair_Display'] text-4xl font-medium leading-none text-slate-950 md:text-5xl lg:text-6xl">{t('reviews.title')}</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           {visibleReviews.map((review, index) => (
-            <div 
+            <article
               key={index} 
-              className="bg-white p-6 rounded-xl transition-all duration-300 hover:scale-105 group cursor-pointer hover:shadow-lg border border-gray-100"
+              className="group flex min-h-[330px] flex-col bg-[#f8f6f1] p-7 transition-colors duration-300 hover:bg-[#f4f1e9] md:p-9"
             >
-              <div className="flex justify-between items-start mb-4">
+              <Quote size={36} className="mb-7 text-[#0A5275]/25" aria-hidden="true" />
+              <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">{review.name}</h3>
-                  <p className="text-gray-600 flex items-center gap-2">
+                  <h3 className="text-xl font-semibold text-slate-950">{review.name}</h3>
+                  <p className="mt-1 flex items-center gap-2 text-sm text-slate-500">
                     {review.country}
                     {React.createElement(countryComponents[review.country], {
-                      className: "w-6 h-4"
+                      className: "h-4 w-6"
                     })}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <span className="font-bold text-gray-900">{review.score}/10</span>
+                <div className="flex items-center gap-1.5 bg-[#062842] px-3 py-2 text-white">
+                  <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
+                  <span className="text-sm font-bold">{review.score}/10</span>
                 </div>
               </div>
-              <div className="text-sm text-gray-500 mb-2">
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#0A5275]">
                 {review.stay} · {review.date} · {review.type}
               </div>
-              <h4 className="font-semibold mb-2 text-gray-900 group-hover:text-[#006CE4] transition-colors">{review.title}</h4>
-              <p className="text-gray-600">{review.text}</p>
-            </div>
+              <h4 className="mb-3 font-['Playfair_Display'] text-2xl leading-tight text-slate-950">{review.title}</h4>
+              <p className="text-sm leading-7 text-slate-600 md:text-base">{review.text}</p>
+            </article>
           ))}
         </div>
         
         {!showAllReviews && (
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center md:mt-10">
             <button
               onClick={() => setShowAllReviews(true)}
-              className="px-6 py-2 bg-[#006CE4] rounded-full hover:bg-[#0052b3] transition-colors text-white font-semibold shadow-md"
+              className="rounded-full bg-[#0A5275] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:bg-[#073B56] hover:shadow-lg"
             >
               {t('reviews.showMore')}
             </button>

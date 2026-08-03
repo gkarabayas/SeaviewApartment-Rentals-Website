@@ -27,7 +27,7 @@ export function Hero() {
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-semibold text-white mb-8">
+        <h1 className="mb-8 font-['Playfair_Display'] text-5xl font-medium leading-[0.95] text-white md:text-7xl">
           {t('hero.title1')} <span className="block mt-3">{t('hero.title2')}</span>
         </h1>
         <p className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto font-normal">
@@ -35,7 +35,7 @@ export function Hero() {
         </p>
         <button
           onClick={scrollToContact}
-          className="bg-[#006CE4] text-white px-6 py-4 rounded-2xl text-xl font-semibold hover:bg-[#0052b3] transition-colors shadow-lg"
+          className="bg-[#0A5275] text-white px-6 py-4 rounded-2xl text-xl font-semibold hover:bg-[#073B56] transition-colors shadow-lg"
         >
           {t('hero.button')}
         </button>

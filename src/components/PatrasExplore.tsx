@@ -8,6 +8,9 @@ export function PatrasExplore() {
             {/* Section 1: Patras Greece - Full Width Hero with Bridge */}
             <section className="bg-white pt-8">
                 <div className="text-center max-w-4xl mx-auto px-4 mb-8 md:mb-12">
+                    <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#0A5275]">
+                        {t('patrasExplore.sectionIntro')}
+                    </p>
                     <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold tracking-[0.15em] text-gray-800 mb-6 uppercase" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                         {t('patrasExplore.title')}
                     </h2>

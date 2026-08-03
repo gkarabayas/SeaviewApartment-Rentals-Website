@@ -84,39 +84,39 @@ export function Contact() {
           onBack={handleBack}  // Pass the handler
         />
       ) : (
-        <section className="relative" id="contact">
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-            <h2 className="section-title text-4xl font-semibold mb-12 text-center text-gray-900">{t('contact.title')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="space-y-8">
+        <section id="contact">
+          <div className="mx-auto w-full max-w-[90rem] px-4 text-gray-900 sm:px-6 lg:px-8">
+            <h2 className="mb-8 text-center font-['Playfair_Display'] text-4xl font-medium leading-none text-slate-950 md:mb-10 md:text-5xl lg:text-6xl">{t('contact.title')}</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr]">
+              <div className="space-y-8 bg-[#062842] p-7 text-white md:p-10">
                 <div className="flex items-center space-x-4">
-                  <Phone className="w-6 h-6 text-[#006CE4]" />
-                  <p className="text-gray-700">+30 6984610117</p>
+                  <Phone className="h-6 w-6 text-sky-200" />
+                  <p className="text-white">+30 6984610117</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6 text-[#006CE4]" />
-                  <p className="text-gray-700">roswitharied@gmail.com</p>
+                  <Mail className="h-6 w-6 text-sky-200" />
+                  <p className="text-white">roswitharied@gmail.com</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <MapPin className="w-6 h-6 text-[#006CE4]" />
-                  <p className="text-gray-700">Lefkotheas 8, 264 42 Patra, Greece</p>
+                  <MapPin className="h-6 w-6 text-sky-200" />
+                  <p className="text-white">Lefkotheas 8, 264 42 Patra, Greece</p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-xl mt-6 border border-gray-100 shadow-md">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900">{t('contact.locationHighlights')}</h3>
-                  <ul className="space-y-2 text-gray-600">
+                <div className="mt-6 hidden border border-white/15 bg-white/10 p-6 md:block">
+                  <h3 className="mb-4 font-['Playfair_Display'] text-2xl text-white">{t('contact.locationHighlights')}</h3>
+                  <ul className="space-y-2 text-slate-200">
                     {(t('contact.nearbyPlaces', { returnObjects: true }) as string[]).map((place: string, index: number) => (
                       <li key={index}>• {place}</li>
                     ))}
                   </ul>
                 </div>
               </div>
-              <div className="space-y-6">
-                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-md">
-                  <h3 className="text-xl font-semibold mb-6 flex items-center text-gray-900">
-                    <Calendar className="w-6 h-6 mr-2 text-[#006CE4]" />
+              <div className="bg-white p-7 md:p-10">
+                <div>
+                  <h3 className="mb-6 flex items-center font-['Playfair_Display'] text-2xl text-slate-950 md:text-3xl">
+                    <Calendar className="mr-3 h-6 w-6 text-[#0A5275]" />
                     {t('contact.checkAvailability')}
                   </h3>
-                  <div className="space-y-4">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <label className="block cursor-pointer" onClick={() => document.getElementById('check-in')?.click()}>
                       <span className="block text-sm mb-2">{t('contact.checkIn')}</span>
                       <input
@@ -124,7 +124,7 @@ export function Contact() {
                         type="date"
                         value={checkIn}
                         onChange={(e) => setCheckIn(e.target.value)}
-                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4] cursor-pointer"
+                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#0A5275] focus:ring-1 focus:ring-[#0A5275] cursor-pointer"
                         min={new Date().toISOString().split('T')[0]}
                       />
                     </label>
@@ -135,7 +135,7 @@ export function Contact() {
                         type="date"
                         value={checkOut}
                         onChange={(e) => setCheckOut(e.target.value)}
-                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4] cursor-pointer"
+                        className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-[#0A5275] focus:ring-1 focus:ring-[#0A5275] cursor-pointer"
                         min={checkIn || new Date().toISOString().split('T')[0]}
                       />
                     </label>
@@ -144,7 +144,7 @@ export function Contact() {
                     )}
                     <button
                       onClick={handleBooking}
-                      className="w-full bg-[#006CE4] hover:bg-[#0052b3] text-white font-semibold py-3 px-6 
+                      className="w-full bg-[#0A5275] hover:bg-[#073B56] text-white font-semibold py-3 px-6 md:col-span-2
                         rounded-lg transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed shadow-md
                         flex items-center justify-center space-x-2"
                       disabled={!checkIn || !checkOut || isChecking || Boolean(checkIn && checkOut && 
@@ -161,6 +161,11 @@ export function Contact() {
                     </button>
                   </div>
                 </div>
+                <aside className="mt-10 hidden border-t border-slate-200 pt-7 lg:block">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0A5275]">Direct booking</p>
+                  <h4 className="mt-2 font-['Playfair_Display'] text-2xl text-slate-950">{t('contact.discountPopup.title')}</h4>
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">{t('contact.discountPopup.description')}</p>
+                </aside>
               </div>
             </div>
           </div>
@@ -182,23 +187,23 @@ export function Contact() {
                 <div className="space-y-4">
                   <button
                     onClick={handleEmailClient}
-                    className="w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 rounded-lg transition-all shadow-lg hover:bg-[#0052b3] hover:scale-[1.02] flex items-center justify-center space-x-2"
+                    className="w-full bg-[#0A5275] text-white text-lg font-semibold py-4 px-6 rounded-lg transition-all shadow-lg hover:bg-[#073B56] hover:scale-[1.02] flex items-center justify-center space-x-2"
                   >
                     <Send size={20} />
                     <span>{t('contact.discountPopup.emailButton', { defaultValue: 'Email Us Directly' })}</span>
                   </button>
                   <button
                     onClick={handleContactMessage}
-                    className="hidden w-full bg-[#006CE4] text-white text-lg font-semibold py-4 px-6 
+                    className="hidden w-full bg-[#0A5275] text-white text-lg font-semibold py-4 px-6 
                       rounded-lg relative overflow-hidden transform hover:scale-[1.02] transition-all duration-300
-                      shadow-lg hover:bg-[#0052b3]
+                      shadow-lg hover:bg-[#073B56]
                       tracking-wider"
                   >
                     ✨ {t('contact.discountPopup.messageButton')} 🎉
                   </button>
                   <button
                     onClick={handleBookingContinue}
-                    className="w-full border border-gray-200 hover:border-[#006CE4] text-gray-700 hover:text-[#006CE4] font-semibold py-3 px-6 rounded-lg transition-colors"
+                    className="w-full border border-gray-200 hover:border-[#0A5275] text-gray-700 hover:text-[#0A5275] font-semibold py-3 px-6 rounded-lg transition-colors"
                   >
                     {t('contact.discountPopup.bookingButton')}
                   </button>

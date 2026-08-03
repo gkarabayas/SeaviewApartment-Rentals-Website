@@ -62,7 +62,7 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
     <div className="fixed inset-0 z-[3000] flex items-center justify-center bg-black/95 backdrop-blur-sm">
       <button
         onClick={onClose}
-        className="absolute right-4 top-4 z-20 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-black/60 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#006CE4] hover:text-[#006CE4] md:right-6 md:top-6"
+        className="absolute right-4 top-4 z-20 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-black/60 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#0A5275] hover:text-[#0A5275] md:right-6 md:top-6"
         aria-label="Close gallery"
       >
         <X size={26} />
@@ -78,7 +78,7 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
           <button
             onClick={prevImage}
             className="absolute left-4 md:left-8 z-10 p-2 rounded-full bg-black/50 text-white 
-              hover:bg-[#006CE4] hover:text-white transition-all duration-300 transform hover:scale-105"
+              hover:bg-[#0A5275] hover:text-white transition-all duration-300 transform hover:scale-105"
             aria-label="Previous image"
           >
             <ChevronLeft size={32} />
@@ -97,7 +97,7 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
           <button
             onClick={nextImage}
             className="absolute right-4 md:right-8 z-10 p-2 rounded-full bg-black/50 text-white 
-              hover:bg-[#006CE4] hover:text-white transition-all duration-300 transform hover:scale-105"
+              hover:bg-[#0A5275] hover:text-white transition-all duration-300 transform hover:scale-105"
             aria-label="Next image"
           >
             <ChevronRight size={32} />
@@ -112,7 +112,7 @@ export function Gallery({ isOpen, onClose, initialImageIndex = 0, images }: Gall
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex 
-                  ? 'w-6 bg-[#006CE4]' 
+                  ? 'w-6 bg-[#0A5275]' 
                   : 'bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Go to image ${idx + 1}`}

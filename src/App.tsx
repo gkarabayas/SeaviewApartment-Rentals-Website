@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigation } from './components/Navigation'; // Assuming these paths are correct
 import { Hero } from './components/Hero';
@@ -24,6 +24,33 @@ function App() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [showAllImages, setShowAllImages] = useState(false);
 
+  useEffect(() => {
+    const sectionIds = ['home', 'gallery', 'features', 'reviews', 'host', 'map'];
+
+    const updateActiveSection = () => {
+      const readingLine = window.scrollY + window.innerHeight * 0.35;
+      let currentSection = 'home';
+
+      sectionIds.forEach((sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section && section.offsetTop <= readingLine) {
+          currentSection = sectionId;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
+  }, []);
+
   // Make sure component paths in imports are correct
   // e.g., './components/GalleryModal' if you renamed the import
 
@@ -48,19 +75,24 @@ function App() {
           <Welcome />
 
           {/* Gallery Section */}
-          <div id="gallery" className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
-            <div className="max-w-7xl mx-auto px-2 md:px-4"> {/* Less padding on mobile */}
-              <div className="content-card p-3 md:p-6"> {/* Less padding on mobile */}
-                <h2 className="section-title text-3xl md:text-4xl font-semibold text-gray-900 mb-4 md:mb-6 text-center">
-                  {t('gallery.title')}
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-                  {images.slice(0, showAllImages ? images.length : 6).map((image, index) => (
+          <section id="gallery" className="bg-white py-10 md:py-14">
+            <div className="mx-auto w-full max-w-[90rem] px-4 sm:px-6 lg:px-8">
+              <div className="mb-8 md:mb-10">
+                <div>
+                  <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#0A5275]">02</p>
+                  <h2 className="font-['Playfair_Display'] text-4xl font-medium leading-none text-slate-950 md:text-5xl lg:text-6xl">
+                    {t('gallery.title')}
+                  </h2>
+                </div>
+              </div>
+              <div className="grid auto-rows-[8rem] grid-cols-2 gap-3 sm:auto-rows-[10rem] md:grid-cols-4 md:auto-rows-[11rem] md:gap-4 lg:auto-rows-[12rem] lg:gap-5">
+                  {images.slice(0, showAllImages ? images.length : 7).map((image, index) => (
                     <div
                       key={index}
-                      className="group aspect-square overflow-hidden rounded-xl cursor-pointer bg-white shadow-md
-                        hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] border border-gray-100
-                        hover:border-[#006CE4]/20"
+                      className={`group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm transition-all duration-500 hover:scale-[1.01] hover:border-[#0A5275]/30 hover:shadow-xl ${
+                        index === 0 ? 'col-span-2 row-span-2' :
+                        index === 1 || index === 2 ? 'row-span-2' : ''
+                      }`}
                       onClick={() => {
                         setSelectedImageIndex(index);
                         setShowGalleryModal(true);
@@ -73,53 +105,49 @@ function App() {
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
                         />
-                        {/* --- CORRECTED THIS LINE --- */}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                        {/* --- END CORRECTION --- */}
+                        <div className="absolute inset-0 bg-slate-950/0 transition-colors duration-300 group-hover:bg-slate-950/15" />
                       </div>
                     </div>
                   ))}
-                </div>
-                {!showAllImages && images.length > 6 && (
-                  <div className="text-center mt-8 pb-6">
-                    <button
-                      onClick={() => setShowAllImages(true)}
-                      className="px-8 py-3 bg-[#006CE4] text-white font-semibold rounded-full hover:bg-[#0052b3]
-                        transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
-                    >
-                      {t('gallery.showMore')}
-                    </button>
-                  </div>
-                )}
               </div>
+              {!showAllImages && images.length > 7 && (
+                <div className="mt-8 text-center">
+                  <button
+                    onClick={() => setShowAllImages(true)}
+                    className="rounded-full bg-[#0A5275] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:bg-[#073B56] hover:shadow-lg"
+                  >
+                    {t('gallery.showMore')}
+                  </button>
+                </div>
+              )}
             </div>
-          </div>
+          </section>
 
           {/* Other Sections */}
-          <div className="section-light page-section section-container"> {/* Use consistent section wrapping if needed */}
+          <div className="bg-[#f8f6f1] pb-0 pt-10 md:pt-14"> {/* Use consistent section wrapping if needed */}
             <CityVideo />
           </div>
 
-          <div className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
+          <div className="section-dark pb-8 pt-2 md:pb-8 md:pt-4"> {/* Use consistent section wrapping if needed */}
             <Features />
           </div>
 
-          <div className="section-light page-section"> {/* Use consistent section wrapping if needed */}
+          <div className="bg-white py-8 md:py-10"> {/* Use consistent section wrapping if needed */}
             <Reviews />
           </div>
 
-          <div className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
+          <div className="bg-[#f8f6f1] py-10 md:py-14"> {/* Use consistent section wrapping if needed */}
             <Host />
           </div>
 
-          <div className="section-light page-section"> {/* Use consistent section wrapping if needed */}
+          <div className="bg-white py-10 md:py-14"> {/* Use consistent section wrapping if needed */}
             <Map />
           </div>
 
           {/* Patras Explore Sections */}
           <PatrasExplore />
 
-          <div className="section-dark page-section"> {/* Use consistent section wrapping if needed */}
+          <div className="bg-[#f8f6f1] py-10 md:py-14"> {/* Use consistent section wrapping if needed */}
             <Contact />
           </div>
 

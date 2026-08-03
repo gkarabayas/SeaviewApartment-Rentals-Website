@@ -91,7 +91,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
             </h3>
             <button 
               onClick={onBack}
-              className="text-sm text-[#006CE4] hover:text-[#0052b3] transition-colors flex items-center gap-2"
+              className="text-sm text-[#0A5275] hover:text-[#073B56] transition-colors flex items-center gap-2"
             >
               {t('sendMessage.changeButton')}
             </button>
@@ -116,7 +116,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#0A5275] focus:ring-1 focus:ring-[#0A5275]"
               required
             />
           </div>
@@ -130,7 +130,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#0A5275] focus:ring-1 focus:ring-[#0A5275]"
               required
             />
           </div>
@@ -144,7 +144,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={5}
-              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#006CE4] focus:ring-1 focus:ring-[#006CE4]"
+              className="w-full p-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:border-[#0A5275] focus:ring-1 focus:ring-[#0A5275]"
               required
             />
           </div>
@@ -164,7 +164,7 @@ export function SendMessage({ checkIn, checkOut, onBack }: SendMessageProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#006CE4] hover:bg-[#0052b3] disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg 
+            className="w-full bg-[#0A5275] hover:bg-[#073B56] disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg 
               transition-colors flex items-center justify-center space-x-2 shadow-md"
           >
             {isLoading ? (

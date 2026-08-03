@@ -8,13 +8,13 @@ export function Map() {
 
   useEffect(() => {
     // Check if map container already has a map instance
-    const container = L.DomUtil.get('map');
+    const container = L.DomUtil.get('map-canvas');
     if (container != null && (container as any)._leaflet_id != null) {
        return; // Already initialized
     }
 
     // Initialize Leaflet Map
-    const map = L.map('map', {
+    const map = L.map('map-canvas', {
       preferCanvas: true,
     }).setView([38.285794, 21.7615477], 12); // Zoomed in (adjust level 12-18 as needed)
 
@@ -68,24 +68,22 @@ export function Map() {
   }, []); // Empty dependency array ensures this runs once on mount
 
   return (
-    <section className="page-section bg-white"> {/* Adjusted padding */}
-      <div className="max-w-5xl mx-auto bg-white p-6 md:p-8 rounded-2xl text-gray-900 
-      shadow-[0_0_50px_0_rgba(0,0,0,0.1)] 
-      hover:shadow-[0_0_50px_0_rgba(0,0,0,0.15)] 
-      transition-all duration-300
-      border border-gray-100"> {/* Increased max-width */}
-        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center text-black-800">{t('map.title')}</h2>
+    <section id="map">
+      <div className="mx-auto w-full max-w-[90rem] px-4 text-gray-900 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center md:mb-10">
+          <h2 className="font-['Playfair_Display'] text-4xl font-medium leading-none text-slate-950 md:text-5xl lg:text-6xl">{t('map.title')}</h2>
+        </div>
 
-        {/* Flex container for Map and Street View */}
-        <div className="flex flex-col md:flex-row gap-6">
-
-          {/* Left Side: Leaflet Map */}
-          <div className="w-full md:w-1/2 h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-md border border-gray-200">
-            <div id="map" className="w-full h-full"></div> {/* Leaflet map attaches here */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#0A5275]">Find us</p>
+            <div className="h-[360px] overflow-hidden border border-slate-200 shadow-sm md:h-[460px]">
+            <div id="map-canvas" className="w-full h-full"></div> {/* Leaflet map attaches here */}
+            </div>
           </div>
-
-          {/* Right Side: Google Street View */}
-          <div className="w-full md:w-1/2 h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-md border border-gray-200">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#0A5275]">Street view</p>
+            <div className="h-[360px] overflow-hidden border border-slate-200 shadow-sm md:h-[460px]">
             <iframe
               // Use the specific Street View embed URL you provided
               src="https://www.google.com/maps/embed?pb=!4v1743344663474!6m8!1m7!1sCggpOc3ezKINPGKKGwuLuw!2m2!1d38.28567816022208!2d21.7614639503293!3f97.35578632455993!4f16.674108922094078!5f1.542265511847476"
@@ -95,12 +93,11 @@ export function Map() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade" // Use camelCase for JSX
               title="Google Street View" // Add a title for accessibility
-            ></iframe>
+            />
+            </div>
           </div>
-
         </div>
-         {/* Address text below the maps */}
-         <p className="text-center mt-7 text-gray-600">Lefkotheas 8, Patra 264 42</p>
+        <p className="mt-6 text-center text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Lefkotheas 8, Patra 264 42</p>
       </div>
     </section>
   );

@@ -42,27 +42,30 @@ export const CityVideo: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <div className="content-card p-4 md:p-8">
-        <h2 className="section-title mb-3 md:mb-5">
+    <div className="mx-auto w-full max-w-[90rem] px-4 sm:px-6 lg:px-8">
+      <div>
+        <div className="mb-2 md:mb-3">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#0A5275]">03</p>
+          <h2 className="font-['Playfair_Display'] text-4xl font-medium leading-none text-slate-950 md:text-5xl lg:text-6xl">
           {t('cityVideo.title')}
-        </h2>
-        <p className="text-base md:text-lg text-center mb-6 md:mb-10 text-gray-600">
+          </h2>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">
           {t('cityVideo.description')}
         </p>
+        </div>
 
         {/* Desktop Layout - Both videos side by side */}
         <div className="hidden md:block">
-          <div className="flex justify-center gap-16 lg:gap-24">
+          <div className="grid grid-cols-2 gap-6 bg-[#f8f6f1] p-6 lg:gap-10 lg:p-10">
             {videos.map((video, index) => (
-              <div key={index} className="flex flex-col items-center space-y-4">
+              <div key={index} className="flex flex-col items-center">
                 {/* Video container */}
-                <div className="w-[280px] lg:w-[320px]">
-                  <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-white relative group">
+                <div className="w-full max-w-[520px]">
+                  <div className="group relative aspect-video overflow-hidden rounded-2xl border-4 border-white shadow-xl">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none z-10"></div>
                     <video
                       ref={index === 0 ? videoRef1 : videoRef2}
-                      className="w-full h-full object-cover bg-black"
+                      className="city-video w-full h-full object-cover bg-black"
                       playsInline
                       controls
                       controlsList="nodownload"
@@ -75,8 +78,7 @@ export const CityVideo: React.FC = () => {
                     </video>
                   </div>
                 </div>
-                {/* Video title label */}
-                <div className="px-6 py-3 bg-[#006CE4] text-white font-semibold rounded-lg shadow-md text-center">
+                <div className="mt-5 text-center text-sm font-bold uppercase tracking-[0.18em] text-[#0A5275]">
                   {video.title}
                 </div>
               </div>
@@ -86,14 +88,14 @@ export const CityVideo: React.FC = () => {
 
         {/* Mobile Layout - Single video with switcher */}
         <div className="md:hidden">
-          <div className="flex flex-col items-center space-y-4">
+          <div className="flex flex-col items-center space-y-4 bg-[#f8f6f1] p-4 sm:p-6">
             {/* Video container */}
-            <div className="w-full max-w-[300px]">
-              <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-white relative group">
+            <div className="w-full max-w-[270px]">
+              <div className="group relative aspect-[9/16] overflow-hidden rounded-2xl border-4 border-white shadow-xl">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
                 <video
                   key={videoKey}
-                  className="w-full h-full object-cover bg-black"
+                  className="city-video w-full h-full object-cover bg-black"
                   playsInline
                   controls
                   controlsList="nodownload"
@@ -107,13 +109,13 @@ export const CityVideo: React.FC = () => {
             </div>
 
             {/* Video switcher buttons */}
-            <div className="grid grid-cols-2 gap-3 w-full max-w-[300px]">
+            <div className="grid w-full max-w-[270px] grid-cols-2 gap-3">
               {videos.map((video, index) => (
                 <button
                   key={index}
                   onClick={() => handleVideoSwitch(index)}
                   className={`p-3 rounded-lg text-center text-sm transition-all duration-300 shadow-md ${index === currentVideoIndex
-                    ? 'bg-[#006CE4] text-white font-semibold scale-105'
+                    ? 'bg-[#0A5275] text-white font-semibold scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-100'
                     }`}
                 >

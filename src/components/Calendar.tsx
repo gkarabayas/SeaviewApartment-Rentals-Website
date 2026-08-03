@@ -125,7 +125,7 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
             key={`prev-${day}`}
             className={`
               h-8 flex items-center justify-center text-sm rounded-full
-              ${isDateInRange(day, month, year) ? 'bg-[#006CE4] text-white' : 'text-gray-400'}
+              ${isDateInRange(day, month, year) ? 'bg-[#0A5275] text-white' : 'text-gray-400'}
             `}
           >
             {day}
@@ -142,8 +142,8 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
               key={`day-${day}`}
               className={`
                 h-8 flex items-center justify-center text-sm rounded-full transition-all
-                ${isSelected ? 'bg-[#006CE4] text-white' : ''}
-                ${isToday && !isSelected ? 'border border-[#006CE4] text-[#006CE4]' : ''}
+                ${isSelected ? 'bg-[#0A5275] text-white' : ''}
+                ${isToday && !isSelected ? 'border border-[#0A5275] text-[#0A5275]' : ''}
                 ${!isSelected ? 'text-gray-700' : ''}
               `}
             >
@@ -157,7 +157,7 @@ export function Calendar({ selectedStartDate, selectedEndDate, readonly = false,
             key={`next-${day}`}
             className={`
               h-8 flex items-center justify-center text-sm rounded-full
-              ${isDateInRange(day, month, year) ? 'bg-[#006CE4] text-white' : 'text-gray-400'}
+              ${isDateInRange(day, month, year) ? 'bg-[#0A5275] text-white' : 'text-gray-400'}
             `}
           >
             {day}

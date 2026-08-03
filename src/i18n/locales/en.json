@@ -117,16 +117,16 @@
     "locationHighlights": "Location Highlights",
     "locationItems": [
       "98 feet from the beachfront",
-      "0.6 miles from Rion",
-      "2.5 miles from Patras center",
-      "0.6 miles from Rio-Antirio Bridge"
+      "0.6 miles (1 km) from Rion",
+      "2.5 miles (4 km) from Patras center",
+      "0.6 miles (1 km) from Rio-Antirio Bridge"
     ],
     "attractions": "Nearby Attractions",
     "attractionItems": [
-      "Archaeological Museum (1.2 miles)",
-      "Roman Theater (4 miles)",
-      "St. Andreas Church (5 miles)",
-      "Achaia Klaus Winery (10 miles)"
+      "Archaeological Museum (1.2 miles / 1.9 km)",
+      "Roman Theater (4 miles / 6.4 km)",
+      "St. Andreas Church (5 miles / 8 km)",
+      "Achaia Klaus Winery (10 miles / 16.1 km)"
     ],
     "transportation": "Transportation",
     "transportItems": [
@@ -184,6 +184,7 @@
     "tryOtherDates": "Please try different dates."
   },
   "patrasExplore": {
+    "sectionIntro": "Discover Patras, beyond your stay",
     "title": "Patras Greece",
     "description": "Our apartment is located in Patras, the largest city in the Peloponnese, urban and commercial center of Western Greece. Just 2 hours from Athens, with its Port connecting it with the Ionian Islands and Italy and the imposing bridge, unique in its kind, connecting it with Central Greece.",
     "bridgeAlt": "Rio-Antirrio Bridge panoramic view",
