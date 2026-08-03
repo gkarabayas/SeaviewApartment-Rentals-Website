@@ -88,7 +88,7 @@ export function Features() {
           <p className="mx-auto max-w-xl text-sm leading-relaxed text-slate-500 md:text-base">{t('features.subtitle')}</p>
         </div>
 
-        <div className="flex flex-col">
+        <div className="-mx-4 flex flex-col sm:-mx-6 md:mx-0">
           <article className="order-3 grid overflow-hidden bg-[#062842] text-white lg:grid-cols-[1.28fr_0.72fr]">
             <div className="group relative order-2 min-h-[310px] overflow-hidden md:min-h-[440px] lg:order-1">
               <img
@@ -103,18 +103,36 @@ export function Features() {
               </div>
             </div>
             <div className="order-1 flex flex-col justify-center px-7 py-10 md:px-12 lg:order-2 lg:px-10 xl:px-14">
-              <div className="mb-7 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-white/10 text-sky-200"><Waves size={23} /></div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-sky-200">03</p>
-              <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none md:text-5xl">{amenities.seaview.title}</h3>
+              <div className="mb-5 md:hidden">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-sky-200">03</p>
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 bg-white/10 text-sky-200"><Waves size={23} /></div>
+                  <h3 className="font-['Playfair_Display'] text-3xl leading-none">{amenities.seaview.title}</h3>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <div className="mb-7 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-white/10 text-sky-200"><Waves size={23} /></div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-sky-200">03</p>
+                <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none md:text-5xl">{amenities.seaview.title}</h3>
+              </div>
               <p className="max-w-sm text-sm leading-7 text-slate-200 md:text-base">{amenities.seaview.details}</p>
             </div>
           </article>
 
-          <article className="order-1 grid border-b border-slate-200 bg-[#f8f6f1] lg:grid-cols-2">
+          <article className="order-1 grid border-b border-slate-200 bg-[#f1ede4] lg:grid-cols-2">
             <div className="flex flex-col justify-center px-7 py-10 md:px-12 lg:order-2 lg:px-14">
-              <div className="mb-7 grid h-12 w-12 place-items-center rounded-full bg-[#0A5275]/10 text-[#0A5275]"><Bed size={23} /></div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#0A5275]">01</p>
-              <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none text-slate-950 md:text-5xl">{amenities.bedrooms.title}</h3>
+              <div className="mb-5 md:hidden">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-[#0A5275]">01</p>
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#0A5275]/10 text-[#0A5275]"><Bed size={23} /></div>
+                  <h3 className="font-['Playfair_Display'] text-3xl leading-none text-slate-950">{amenities.bedrooms.title}</h3>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <div className="mb-7 grid h-12 w-12 place-items-center rounded-full bg-[#0A5275]/10 text-[#0A5275]"><Bed size={23} /></div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#0A5275]">01</p>
+                <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none text-slate-950 md:text-5xl">{amenities.bedrooms.title}</h3>
+              </div>
               <p className="max-w-sm text-sm leading-7 text-slate-600 md:text-base">{amenities.bedrooms.details}</p>
             </div>
             <div className="grid min-h-[330px] grid-cols-[1.15fr_0.85fr] gap-3 p-4 md:min-h-[410px] md:gap-5 md:p-6 lg:order-1">
@@ -125,9 +143,18 @@ export function Features() {
 
           <article className="order-2 grid bg-white lg:grid-cols-2">
             <div className="flex flex-col justify-center px-7 py-10 md:px-12 lg:px-14">
-              <div className="mb-7 grid h-12 w-12 place-items-center rounded-full bg-amber-100 text-amber-700"><UtensilsCrossed size={23} /></div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-amber-700">02</p>
-              <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none text-slate-950 md:text-5xl">{amenities.kitchen.title}</h3>
+              <div className="mb-5 md:hidden">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-amber-700">02</p>
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-amber-100 text-amber-700"><UtensilsCrossed size={23} /></div>
+                  <h3 className="font-['Playfair_Display'] text-3xl leading-none text-slate-950">{amenities.kitchen.title}</h3>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <div className="mb-7 grid h-12 w-12 place-items-center rounded-full bg-amber-100 text-amber-700"><UtensilsCrossed size={23} /></div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-amber-700">02</p>
+                <h3 className="mb-4 font-['Playfair_Display'] text-4xl leading-none text-slate-950 md:text-5xl">{amenities.kitchen.title}</h3>
+              </div>
               <p className="max-w-sm text-sm leading-7 text-slate-600 md:text-base">{amenities.kitchen.details}</p>
             </div>
             <div className="group relative min-h-[320px] overflow-hidden lg:min-h-[410px]">
@@ -142,7 +169,7 @@ export function Features() {
           </article>
         </div>
 
-        <div className="flex flex-col">
+        <div className="-mx-4 flex flex-col sm:-mx-6 md:mx-0">
           {amenityGroups.map((group) => {
             const GroupIcon = group.icon;
 

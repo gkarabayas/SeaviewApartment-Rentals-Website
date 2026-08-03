@@ -33,6 +33,8 @@
     "description": "Discover the charm of this historic coastal city",
     "video1": "City Tour",
     "video2": "St. Nicholas Stairway",
+    "video1Mobile": "City Tour",
+    "video2Mobile": "St. Nicholas Stairway",
     "prevVideo": "Previous Video",
     "nextVideo": "Next Video"
   },

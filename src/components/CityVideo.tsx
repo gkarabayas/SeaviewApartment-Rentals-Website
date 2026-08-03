@@ -14,10 +14,12 @@ export const CityVideo: React.FC = () => {
     {
       src: '/videos/patras.mp4',
       title: t('cityVideo.video1'),
+      mobileTitle: t('cityVideo.video1Mobile'),
     },
     {
       src: '/videos/patras2.mp4',
       title: t('cityVideo.video2'),
+      mobileTitle: t('cityVideo.video2Mobile'),
     }
   ];
 
@@ -119,7 +121,7 @@ export const CityVideo: React.FC = () => {
                     : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-100'
                     }`}
                 >
-                  {video.title}
+                  {video.mobileTitle}
                 </button>
               ))}
             </div>
