@@ -33,8 +33,11 @@
     "description": "Discover the charm of this historic coastal city",
     "video1": "City Tour",
     "video2": "St. Nicholas Stairway",
+    "video3": "Pantanassa Church",
     "video1Mobile": "City Tour",
     "video2Mobile": "St. Nicholas Stairway",
+    "video3Mobile": "Pantanassa Church",
+    "playVideo": "Play {{title}}",
     "prevVideo": "Previous Video",
     "nextVideo": "Next Video"
   },
